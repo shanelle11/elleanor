@@ -1,5 +1,3 @@
-
-
 /* CSS Reset & Base Styles */
 * {
     margin: 0;
@@ -8,16 +6,13 @@
 }
 
 :root {
-    /* Color Palette */
-    --pastel-pink: #F7B2BD;
-    --soft-yellow: #FFEB8A;
-    --warm-peach: #FFD8AF;
-    --gentle-purple: #CEB7FE;
+    --pastel-pink: #FFB6D9;
+    --soft-pink: #FFC9E5;
+    --warm-peach: #FFD4E5;
+    --gentle-purple: #E5CCFF;
     --white: #FFFFFF;
-    --light-pink: #FFF0F3;
+    --light-pink: #FFF0F7;
     --border-color: #FF9EC8;
-    
-    /* Fonts */
     --font-hero: 'Luckiest Guy', cursive;
     --font-heading: 'Baloo 2', cursive;
     --font-body: 'Varela Round', sans-serif;
@@ -30,7 +25,25 @@ html {
 
 body {
     font-family: var(--font-body);
-    background: linear-gradient(135deg, #FFEB8A 0%, #FFD8AF 50%, #F7B2BD 100%);
+    --grid-color: rgba(255, 255, 255, 0.4);
+    --grid-size: 50px;
+    background-color: #FFB6D9;
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent calc(var(--grid-size) - 1px),
+            var(--grid-color) calc(var(--grid-size) - 1px),
+            var(--grid-color) var(--grid-size)
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent calc(var(--grid-size) - 1px),
+            var(--grid-color) calc(var(--grid-size) - 1px),
+            var(--grid-color) var(--grid-size)
+        );
+    background-size: var(--grid-size) var(--grid-size);
     background-attachment: fixed;
     color: #333;
     line-height: 1.6;
@@ -38,7 +51,14 @@ body {
     position: relative;
 }
 
-/* Floating decorative elements in background */
+/* Shared floating animation */
+@keyframes floatBubble {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(20px, -30px) scale(1.2); }
+    50% { transform: translate(-15px, -50px) scale(0.9); }
+    75% { transform: translate(30px, -20px) scale(1.1); }
+}
+
 body::before,
 body::after {
     content: '';
@@ -49,27 +69,21 @@ body::after {
     opacity: 0.1;
     pointer-events: none;
     z-index: 1;
+    animation: floatBubble 8s ease-in-out infinite;
 }
 
 body::before {
     background: radial-gradient(circle, var(--pastel-pink), transparent);
     top: 20%;
     left: 10%;
-    animation: floatBubble 8s ease-in-out infinite;
 }
 
 body::after {
     background: radial-gradient(circle, var(--gentle-purple), transparent);
     top: 60%;
     right: 15%;
-    animation: floatBubble 10s ease-in-out infinite reverse;
-}
-
-@keyframes floatBubble {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    25% { transform: translate(20px, -30px) scale(1.2); }
-    50% { transform: translate(-15px, -50px) scale(0.9); }
-    75% { transform: translate(30px, -20px) scale(1.1); }
+    animation-duration: 10s;
+    animation-direction: reverse;
 }
 
 /* ========================================
@@ -86,14 +100,18 @@ body::after {
     justify-content: center;
     align-items: center;
     position: relative;
-    background: linear-gradient(180deg, #FFEB8A 0%, #FFD8AF 100%);
+    background: transparent;
     overflow: hidden;
 }
 
-/* Scattered stars in hero background */
+/* Shared animations */
+@keyframes twinkleStar {
+    0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
+    50% { opacity: 0.8; transform: scale(1.3) rotate(180deg); }
+}
+
 .hero-section::before,
 .hero-section::after {
-    content: '⭐';
     position: absolute;
     font-size: 2rem;
     opacity: 0.3;
@@ -101,6 +119,7 @@ body::after {
 }
 
 .hero-section::before {
+    content: '⭐';
     top: 15%;
     left: 20%;
     animation-delay: 0.5s;
@@ -113,9 +132,20 @@ body::after {
     animation-delay: 1.5s;
 }
 
-@keyframes twinkleStar {
-    0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
-    50% { opacity: 0.8; transform: scale(1.3) rotate(180deg); }
+/* Shared keyframes */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes titleBounce {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+    50% { opacity: 0.6; transform: scale(1.2) rotate(180deg); }
 }
 
 .hero-content {
@@ -127,34 +157,15 @@ body::after {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 .hero-title {
     font-family: var(--font-hero);
     font-size: 6rem;
     color: #FF1493;
-    text-shadow: 
-        4px 4px 0px #FFB6C1,
-        8px 8px 0px #FFC0CB,
-        -2px -2px 0px #FF69B4;
+    text-shadow: 4px 4px 0px #FFB6C1, 8px 8px 0px #FFC0CB, -2px -2px 0px #FF69B4;
     margin: 20px 0;
     animation: titleBounce 2s ease-in-out infinite;
     letter-spacing: 3px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@keyframes titleBounce {
-    0%, 100% { transform: translateY(0) rotate(-2deg); }
-    50% { transform: translateY(-10px) rotate(2deg); }
 }
 
 .sparkles {
@@ -163,9 +174,19 @@ body::after {
     transition: opacity 0.3s ease;
 }
 
-@keyframes sparkle {
-    0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
-    50% { opacity: 0.6; transform: scale(1.2) rotate(180deg); }
+@keyframes imageFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+@keyframes rotateBorder {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
 }
 
 .hero-image-wrapper {
@@ -180,18 +201,10 @@ body::after {
     height: 350px;
     border-radius: 50%;
     border: 8px solid var(--pastel-pink);
-    box-shadow: 
-        0 0 0 12px var(--gentle-purple),
-        0 0 0 20px var(--soft-yellow),
-        0 15px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 0 12px var(--gentle-purple), 0 0 0 20px var(--soft-pink), 0 15px 40px rgba(0, 0, 0, 0.2);
     object-fit: cover;
     animation: imageFloat 3s ease-in-out infinite;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@keyframes imageFloat {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(5deg); }
 }
 
 .image-border {
@@ -206,9 +219,9 @@ body::after {
     transition: opacity 0.3s ease;
 }
 
-@keyframes rotateBorder {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
 }
 
 .decorative-hearts {
@@ -227,11 +240,6 @@ body::after {
 .heart:nth-child(2) { animation-delay: 0.3s; }
 .heart:nth-child(3) { animation-delay: 0.6s; }
 
-@keyframes heartBeat {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.3); }
-}
-
 .scroll-indicator {
     position: absolute;
     bottom: 30px;
@@ -241,11 +249,6 @@ body::after {
     animation: bounce 2s ease-in-out infinite;
     text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.7);
     transition: opacity 0.3s ease;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
 }
 
 /* ========================================
@@ -265,35 +268,9 @@ body::after {
 /* ========================================
    Side Panels
 ======================================== */
-.side-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.panel-box {
-    background: var(--white);
-    border: 4px solid var(--border-color);
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 
-        8px 8px 0px var(--pastel-pink),
-        0 10px 30px rgba(0, 0, 0, 0.1);
-    animation: panelFloat 4s ease-in-out infinite;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Cute corner decorations on panels */
-.panel-box::before {
-    content: '♡';
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    font-size: 1.2rem;
-    color: var(--pastel-pink);
-    opacity: 0.3;
-    animation: pulseHeart 2s ease-in-out infinite;
+@keyframes panelFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
 }
 
 @keyframes pulseHeart {
@@ -301,13 +278,35 @@ body::after {
     50% { transform: scale(1.2); opacity: 0.6; }
 }
 
+.side-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.panel-box {
+    background: rgba(255, 255, 255, 0.95);
+    border: 4px solid var(--border-color);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 8px 8px 0px var(--pastel-pink), 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: panelFloat 4s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.panel-box::before {
+    content: '♡';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.2rem;
+    color: var(--pastel-pink);
+    animation: pulseHeart 2s ease-in-out infinite;
+}
+
 .panel-box:nth-child(2) { animation-delay: 0.5s; }
 .panel-box:nth-child(3) { animation-delay: 1s; }
-
-@keyframes panelFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-}
 
 .panel-title {
     font-family: var(--font-heading);
@@ -329,7 +328,7 @@ body::after {
     text-decoration: none;
     text-align: center;
     padding: 10px;
-    background: linear-gradient(135deg, var(--soft-yellow), var(--warm-peach));
+    background: linear-gradient(135deg, var(--soft-pink), var(--warm-peach));
     color: #333;
     font-weight: bold;
     border: 3px solid #FF9EC8;
@@ -375,6 +374,12 @@ body::after {
 }
 
 /* Mascot Styles */
+@keyframes mascotWiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+}
+
 .mascot-box {
     background: linear-gradient(135deg, var(--light-pink), var(--warm-peach));
     display: flex;
@@ -401,12 +406,6 @@ body::after {
     animation: mascotWiggle 2s ease-in-out infinite;
 }
 
-@keyframes mascotWiggle {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-5deg); }
-    75% { transform: rotate(5deg); }
-}
-
 .mascot-eyes {
     display: flex;
     gap: 15px;
@@ -420,8 +419,18 @@ body::after {
 }
 
 /* Decorative Right Panel */
+@keyframes decorativeFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes decorativeSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
 .decorative-box {
-    background: linear-gradient(135deg, var(--soft-yellow), var(--warm-peach), var(--pastel-pink));
+    background: linear-gradient(135deg, var(--soft-pink), var(--warm-peach), var(--pastel-pink));
     min-height: 150px;
     display: flex;
     justify-content: center;
@@ -436,11 +445,6 @@ body::after {
     animation: decorativeFloat 3s ease-in-out infinite;
 }
 
-@keyframes decorativeFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
 .deco-star,
 .deco-heart,
 .deco-flower {
@@ -449,15 +453,6 @@ body::after {
 
 .deco-heart { animation-delay: 0.5s; }
 .deco-flower { animation-delay: 1s; }
-
-@keyframes decorativeSpin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-/* Guestbook Styles - REMOVED */
-/* Updates Styles - REMOVED */
-/* Web Buttons - REMOVED */
 
 /* ========================================
    Main Content Area
@@ -468,19 +463,21 @@ body::after {
     gap: 40px;
 }
 
+@keyframes sectionSlideIn {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
 .content-section {
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.95);
     border: 5px solid var(--border-color);
     border-radius: 30px;
     padding: 40px;
-    box-shadow: 
-        12px 12px 0px var(--gentle-purple),
-        0 15px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 12px 12px 0px var(--gentle-purple), 0 15px 40px rgba(0, 0, 0, 0.15);
     animation: sectionSlideIn 1s ease-out;
     position: relative;
 }
 
-/* Corner decorations for content sections */
 .content-section::after {
     content: '✿';
     position: absolute;
@@ -489,23 +486,7 @@ body::after {
     font-size: 2rem;
     color: var(--pastel-pink);
     opacity: 0.4;
-    animation: spinFlower 6s linear infinite;
-}
-
-@keyframes spinFlower {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@keyframes sectionSlideIn {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+    animation: rotateBorder 6s linear infinite;
 }
 
 /* Section Headers */
@@ -532,19 +513,24 @@ body::after {
     left: 50%;
     transform: translateX(-50%);
     font-size: 1.5rem;
-    color: var(--soft-yellow);
+    color: var(--soft-pink);
     opacity: 0.6;
-}
-
-.title-star {
-    color: var(--soft-yellow);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    animation: starTwinkle 2s ease-in-out infinite;
 }
 
 @keyframes starTwinkle {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.5; }
+}
+
+@keyframes decorationBounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-8px) scale(1.2); }
+}
+
+.title-star {
+    color: var(--soft-pink);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: starTwinkle 2s ease-in-out infinite;
 }
 
 .header-decoration {
@@ -560,11 +546,6 @@ body::after {
 
 .header-decoration span:nth-child(2) { animation-delay: 0.3s; }
 .header-decoration span:nth-child(3) { animation-delay: 0.6s; }
-
-@keyframes decorationBounce {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-8px) scale(1.2); }
-}
 
 /* ========================================
    About Section
@@ -583,7 +564,11 @@ body::after {
     position: relative;
 }
 
-/* Scattered sparkles around about box */
+@keyframes sparkleFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-10px) scale(1.2); }
+}
+
 .about-text-box::before,
 .about-text-box::after {
     position: absolute;
@@ -603,11 +588,6 @@ body::after {
     bottom: -10px;
     right: 40px;
     animation-delay: 1s;
-}
-
-@keyframes sparkleFloat {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-10px) scale(1.2); }
 }
 
 .text-bubble {
@@ -645,10 +625,10 @@ body::after {
 }
 
 .info-item {
-    background: linear-gradient(135deg, var(--soft-yellow), var(--warm-peach));
+    background: linear-gradient(135deg, var(--soft-pink), var(--warm-peach));
     padding: 15px;
     border-radius: 15px;
-    border: 3px solid #FFD700;
+    border: 3px solid #FFB6D9;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -692,18 +672,13 @@ body::after {
 }
 
 .decorative-divider span {
-    animation: dividerSpin 3s linear infinite;
+    animation: rotateBorder 3s linear infinite;
 }
 
 .decorative-divider span:nth-child(2) { animation-delay: 0.3s; }
 .decorative-divider span:nth-child(3) { animation-delay: 0.6s; }
 .decorative-divider span:nth-child(4) { animation-delay: 0.9s; }
 .decorative-divider span:nth-child(5) { animation-delay: 1.2s; }
-
-@keyframes dividerSpin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
 
 /* Instagram Button */
 .instagram-button-wrapper {
@@ -767,12 +742,21 @@ body::after {
     margin: 30px 0;
 }
 
+@keyframes starWiggle {
+    0%, 100% { transform: rotate(-10deg) scale(1); }
+    50% { transform: rotate(10deg) scale(1.1); }
+}
+
+@keyframes galleryFadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
 .gallery-item {
     animation: galleryFadeIn 0.8s ease-out;
     position: relative;
 }
 
-/* Add cute corner stickers to gallery items */
 .gallery-item::before {
     content: '⭐';
     position: absolute;
@@ -790,29 +774,13 @@ body::after {
 .gallery-item:nth-child(5)::before { content: '🎀'; animation-delay: 2s; }
 .gallery-item:nth-child(6)::before { content: '🌺'; animation-delay: 2.5s; }
 
-@keyframes starWiggle {
-    0%, 100% { transform: rotate(-10deg) scale(1); }
-    50% { transform: rotate(10deg) scale(1.1); }
-}
-
-@keyframes galleryFadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
 .gallery-frame {
     position: relative;
     overflow: hidden;
     border-radius: 20px;
     border: 5px solid var(--pastel-pink);
     box-shadow: 
-        8px 8px 0px var(--soft-yellow),
+        8px 8px 0px var(--soft-pink),
         0 10px 25px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
     display: block;
@@ -823,7 +791,7 @@ body::after {
 .gallery-frame:hover {
     transform: translateY(-8px) rotate(2deg);
     box-shadow: 
-        12px 12px 0px var(--soft-yellow),
+        12px 12px 0px var(--soft-pink),
         0 15px 35px rgba(0, 0, 0, 0.25);
 }
 
@@ -897,29 +865,21 @@ body::after {
     visibility: visible;
 }
 
+@keyframes modalZoomIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
 .lightbox-content {
     position: relative;
     max-width: 90%;
     max-height: 90%;
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.98);
     border-radius: 30px;
     border: 8px solid var(--pastel-pink);
-    box-shadow: 
-        0 0 50px rgba(255, 105, 180, 0.5),
-        0 20px 60px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 50px rgba(255, 105, 180, 0.5), 0 20px 60px rgba(0, 0, 0, 0.5);
     padding: 30px;
     animation: modalZoomIn 0.4s ease-out;
-}
-
-@keyframes modalZoomIn {
-    from {
-        transform: scale(0.7);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
 }
 
 .lightbox-close {
@@ -973,7 +933,7 @@ body::after {
     text-align: center;
     margin-top: 30px;
     padding: 20px;
-    background: linear-gradient(90deg, var(--soft-yellow), var(--warm-peach), var(--pastel-pink));
+    background: linear-gradient(90deg, var(--soft-pink), var(--warm-peach), var(--pastel-pink));
     border-radius: 20px;
     border: 3px dashed var(--border-color);
 }
@@ -1061,7 +1021,7 @@ body::after {
         border: 6px solid var(--pastel-pink);
         box-shadow: 
             0 0 0 10px var(--gentle-purple),
-            0 0 0 16px var(--soft-yellow),
+            0 0 0 16px var(--soft-pink),
             0 12px 30px rgba(0, 0, 0, 0.2);
     }
     
@@ -1110,7 +1070,7 @@ body::after {
     
     .info-item {
         padding: 12px;
-        border: 2px solid #FFD700;
+        border: 2px solid #FFB6D9;
     }
     
     .bubble-title {
@@ -1174,7 +1134,7 @@ body::after {
         border: 5px solid var(--pastel-pink);
         box-shadow: 
             0 0 0 8px var(--gentle-purple),
-            0 0 0 14px var(--soft-yellow),
+            0 0 0 14px var(--soft-pink),
             0 10px 25px rgba(0, 0, 0, 0.2);
     }
     
@@ -1277,7 +1237,7 @@ body::after {
     .info-item {
         padding: 10px;
         border-radius: 12px;
-        border: 2px solid #FFD700;
+        border: 2px solid #FFB6D9;
     }
     
     .info-icon {
@@ -1330,14 +1290,14 @@ body::after {
         border-radius: 15px;
         border: 4px solid var(--pastel-pink);
         box-shadow: 
-            6px 6px 0px var(--soft-yellow),
+            6px 6px 0px var(--soft-pink),
             0 8px 20px rgba(0, 0, 0, 0.12);
     }
     
     .gallery-frame:hover {
         transform: translateY(-5px) rotate(1deg);
         box-shadow: 
-            8px 8px 0px var(--soft-yellow),
+            8px 8px 0px var(--soft-pink),
             0 12px 25px rgba(0, 0, 0, 0.2);
     }
     
@@ -1464,13 +1424,13 @@ button:focus {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--soft-yellow);
+    background: var(--soft-pink);
 }
 
 ::-webkit-scrollbar-thumb {
     background: linear-gradient(180deg, var(--pastel-pink), var(--gentle-purple));
     border-radius: 10px;
-    border: 2px solid var(--soft-yellow);
+    border: 2px solid var(--soft-pink);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -1480,23 +1440,29 @@ button:focus {
 /* ========================================
    Additional Cute Elements
 ======================================== */
+@keyframes starFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(180deg); }
+}
+
+@keyframes driftAround {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(30px, -40px) rotate(10deg); }
+    50% { transform: translate(-20px, -80px) rotate(-10deg); }
+    75% { transform: translate(40px, -60px) rotate(15deg); }
+}
+
 .content-section::before {
     content: '★';
     position: absolute;
     top: -30px;
     left: 30px;
     font-size: 3rem;
-    color: var(--soft-yellow);
+    color: var(--soft-pink);
     animation: starFloat 3s ease-in-out infinite;
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
 }
 
-@keyframes starFloat {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(180deg); }
-}
-
-/* Random cute floating elements */
 .main-container::before,
 .main-container::after {
     position: absolute;
@@ -1517,13 +1483,6 @@ button:focus {
     bottom: 200px;
     left: 80px;
     animation-delay: 3s;
-}
-
-@keyframes driftAround {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    25% { transform: translate(30px, -40px) rotate(10deg); }
-    50% { transform: translate(-20px, -80px) rotate(-10deg); }
-    75% { transform: translate(40px, -60px) rotate(15deg); }
 }
 
 /* Selection Color */
