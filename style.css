@@ -1,389 +1,445 @@
 /* CSS Reset & Base Styles */
+/* ok so this part basically resets all the browser's default styling */
+/* gotta start from scratch to make things look clean ya know */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* makes sizing way easier to deal with */
 }
 
+/* these are like variables for colors and fonts so i dont have to type them out every time */
+/* honestly saved me so much time lol */
 :root {
-    --pastel-pink: #FFB6D9;
-    --soft-pink: #FFC9E5;
-    --warm-peach: #FFD4E5;
-    --gentle-purple: #E5CCFF;
-    --white: #FFFFFF;
-    --light-pink: #FFF0F7;
-    --border-color: #FF9EC8;
-    --font-hero: 'Luckiest Guy', cursive;
-    --font-heading: 'Baloo 2', cursive;
-    --font-body: 'Varela Round', sans-serif;
+    --pastel-pink: #FFB6D9; /* main pink vibe */
+    --soft-pink: #FFC9E5; /* lighter pink for accents */
+    --warm-peach: #FFD4E5; /* peachy pink shade */
+    --gentle-purple: #E5CCFF; /* purple for shadows and stuff */
+    --white: #FFFFFF; /* just white lol */
+    --light-pink: #FFF0F7; /* super light pink */
+    --border-color: #FF9EC8; /* for borders duh */
+    --font-hero: 'Luckiest Guy', cursive; /* big title font */
+    --font-heading: 'Baloo 2', cursive; /* heading font thats cute */
+    --font-body: 'Varela Round', sans-serif; /* normal text font */
 }
 
+/* makes scrolling smooth instead of jumpy */
 html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+    scroll-behavior: smooth; /* so satisfying when you click links */
+    overflow-x: hidden; /* no horizontal scrolling allowed */
 }
 
+/* this is the main body styling with the cute grid background */
 body {
-    font-family: var(--font-body);
-    --grid-color: rgba(255, 255, 255, 0.4);
-    --grid-size: 50px;
-    background-color: #FFB6D9;
+    font-family: var(--font-body); /* using that varela round font */
+    --grid-color: rgba(255, 255, 255, 0.4); /* white grid lines but see-through */
+    --grid-size: 50px; /* how big each grid square is */
+    background-color: #FFB6D9; /* pink background */
+    /* ok so this creates the grid pattern using gradients */
+    /* vertical lines first, then horizontal lines */
     background-image: 
         repeating-linear-gradient(
-            0deg,
+            0deg, /* vertical direction */
             transparent,
             transparent calc(var(--grid-size) - 1px),
             var(--grid-color) calc(var(--grid-size) - 1px),
             var(--grid-color) var(--grid-size)
         ),
         repeating-linear-gradient(
-            90deg,
+            90deg, /* horizontal direction */
             transparent,
             transparent calc(var(--grid-size) - 1px),
             var(--grid-color) calc(var(--grid-size) - 1px),
             var(--grid-color) var(--grid-size)
         );
     background-size: var(--grid-size) var(--grid-size);
-    background-attachment: fixed;
-    color: #333;
-    line-height: 1.6;
-    overflow-x: hidden;
-    position: relative;
+    background-attachment: fixed; /* keeps grid in place when scrolling */
+    color: #333; /* dark gray text */
+    line-height: 1.6; /* spacing between lines of text */
+    overflow-x: hidden; /* no sideways scrolling */
+    position: relative; /* for positioning stuff inside */
 }
 
-/* Shared floating animation */
+/* floating bubble animation for the background decorations */
+/* makes things move around in a random floaty way */
 @keyframes floatBubble {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    25% { transform: translate(20px, -30px) scale(1.2); }
-    50% { transform: translate(-15px, -50px) scale(0.9); }
-    75% { transform: translate(30px, -20px) scale(1.1); }
+    0%, 100% { transform: translate(0, 0) scale(1); } /* start and end position */
+    25% { transform: translate(20px, -30px) scale(1.2); } /* moves up right and gets bigger */
+    50% { transform: translate(-15px, -50px) scale(0.9); } /* moves up left and gets smaller */
+    75% { transform: translate(30px, -20px) scale(1.1); } /* moves around again */
 }
 
+/* these create two floating bubble decorations in the background */
+/* using ::before and ::after is a css trick to add extra elements */
 body::before,
 body::after {
-    content: '';
-    position: fixed;
+    content: ''; /* empty content but still creates an element */
+    position: fixed; /* stays in place when scrolling */
     width: 100px;
     height: 100px;
-    border-radius: 50%;
-    opacity: 0.1;
-    pointer-events: none;
-    z-index: 1;
-    animation: floatBubble 8s ease-in-out infinite;
+    border-radius: 50%; /* makes it a perfect circle */
+    opacity: 0.1; /* super faint so its just subtle */
+    pointer-events: none; /* cant click on it */
+    z-index: 1; /* layering order */
+    animation: floatBubble 8s ease-in-out infinite; /* applies the floating animation */
 }
 
+/* first bubble - pink gradient */
 body::before {
-    background: radial-gradient(circle, var(--pastel-pink), transparent);
+    background: radial-gradient(circle, var(--pastel-pink), transparent); /* fades from pink to nothing */
     top: 20%;
     left: 10%;
 }
 
+/* second bubble - purple gradient */
 body::after {
-    background: radial-gradient(circle, var(--gentle-purple), transparent);
+    background: radial-gradient(circle, var(--gentle-purple), transparent); /* fades from purple to nothing */
     top: 60%;
     right: 15%;
-    animation-duration: 10s;
-    animation-direction: reverse;
+    animation-duration: 10s; /* slower than the first one */
+    animation-direction: reverse; /* moves in opposite direction */
 }
 
 /* ========================================
    Hero Section
 ======================================== */
+/* this is the big landing section at the top with my name and pic */
+
 .sticky-hero-container {
-    width: 100%;
+    width: 100%; /* full width duh */
 }
 
+/* main hero section styling */
 .hero-section {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    background: transparent;
-    overflow: hidden;
+    height: 100vh; /* takes up full screen height */
+    display: flex; /* flexbox makes centering so easy */
+    flex-direction: column; /* stacks items vertically */
+    justify-content: center; /* centers vertically */
+    align-items: center; /* centers horizontally */
+    position: relative; /* for positioning the decorative elements */
+    background: transparent; /* see-through to show the grid background */
+    overflow: hidden; /* hides anything that goes outside */
 }
 
-/* Shared animations */
+/* twinkling star animation - makes the stars sparkle */
 @keyframes twinkleStar {
-    0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
-    50% { opacity: 0.8; transform: scale(1.3) rotate(180deg); }
+    0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); } /* starts dim */
+    50% { opacity: 0.8; transform: scale(1.3) rotate(180deg); } /* gets brighter and spins */
 }
 
+/* adds star emojis to the hero section as decoration */
 .hero-section::before,
 .hero-section::after {
-    position: absolute;
-    font-size: 2rem;
-    opacity: 0.3;
-    animation: twinkleStar 3s ease-in-out infinite;
+    position: absolute; /* positioned anywhere we want */
+    font-size: 2rem; /* pretty big */
+    opacity: 0.3; /* kinda faded */
+    animation: twinkleStar 3s ease-in-out infinite; /* makes them twinkle forever */
 }
 
+/* first star emoji */
 .hero-section::before {
-    content: '⭐';
+    content: '⭐'; /* star emoji */
     top: 15%;
     left: 20%;
-    animation-delay: 0.5s;
+    animation-delay: 0.5s; /* starts animating a bit later */
 }
 
+/* second sparkle emoji */
 .hero-section::after {
-    content: '✨';
+    content: '✨'; /* sparkles emoji */
     bottom: 20%;
     right: 25%;
-    animation-delay: 1.5s;
+    animation-delay: 1.5s; /* even more delay so they dont sync */
 }
 
-/* Shared keyframes */
+/* animation for content sliding in from bottom */
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(30px); } /* invisible and below */
+    to { opacity: 1; transform: translateY(0); } /* fades in and moves up */
 }
 
+/* bouncy animation for the title text */
 @keyframes titleBounce {
-    0%, 100% { transform: translateY(0) rotate(-2deg); }
-    50% { transform: translateY(-10px) rotate(2deg); }
+    0%, 100% { transform: translateY(0) rotate(-2deg); } /* normal position tilted left */
+    50% { transform: translateY(-10px) rotate(2deg); } /* moves up and tilts right */
 }
 
+/* sparkle animation for the sparkle emojis */
 @keyframes sparkle {
-    0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
-    50% { opacity: 0.6; transform: scale(1.2) rotate(180deg); }
+    0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); } /* full brightness */
+    50% { opacity: 0.6; transform: scale(1.2) rotate(180deg); } /* gets dimmer bigger and spins */
 }
 
+/* container for all the hero content */
 .hero-content {
-    text-align: center;
-    animation: fadeInUp 1.5s ease-out;
+    text-align: center; /* everything centered */
+    animation: fadeInUp 1.5s ease-out; /* slides in when page loads */
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-direction: column; /* stacks vertically */
+    align-items: center; /* centers everything */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* smooth transitions */
 }
 
+/* the big title with my name */
 .hero-title {
-    font-family: var(--font-hero);
-    font-size: 6rem;
-    color: #FF1493;
-    text-shadow: 4px 4px 0px #FFB6C1, 8px 8px 0px #FFC0CB, -2px -2px 0px #FF69B4;
-    margin: 20px 0;
-    animation: titleBounce 2s ease-in-out infinite;
-    letter-spacing: 3px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: var(--font-hero); /* that cool luckiest guy font */
+    font-size: 6rem; /* huge text */
+    color: #FF1493; /* hot pink color */
+    text-shadow: 4px 4px 0px #FFB6C1, 8px 8px 0px #FFC0CB, -2px -2px 0px #FF69B4; /* layered shadows for that retro look */
+    margin: 20px 0; /* spacing above and below */
+    animation: titleBounce 2s ease-in-out infinite; /* bounces forever */
+    letter-spacing: 3px; /* space between letters */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* smooth changes */
 }
 
+/* sparkle emojis around the title */
 .sparkles {
-    font-size: 4rem;
-    animation: sparkle 1.5s ease-in-out infinite;
-    transition: opacity 0.3s ease;
+    font-size: 4rem; /* big sparkles */
+    animation: sparkle 1.5s ease-in-out infinite; /* sparkles continuously */
+    transition: opacity 0.3s ease; /* fades smoothly */
 }
 
+/* floating animation for the profile image */
 @keyframes imageFloat {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(5deg); }
+    0%, 100% { transform: translateY(0) rotate(0deg); } /* normal position */
+    50% { transform: translateY(-15px) rotate(5deg); } /* floats up and tilts slightly */
 }
 
+/* spinning border animation */
 @keyframes rotateBorder {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from { transform: rotate(0deg); } /* starts at 0 degrees */
+    to { transform: rotate(360deg); } /* spins full circle */
 }
 
+/* simple bounce animation */
 @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+    0%, 100% { transform: translateY(0); } /* normal position */
+    50% { transform: translateY(-15px); } /* moves up */
 }
 
+/* wrapper around the profile picture */
 .hero-image-wrapper {
-    position: relative;
-    display: inline-block;
-    margin: 30px 0;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative; /* so the spinning border can be positioned inside */
+    display: inline-block; /* only takes up as much space as needed */
+    margin: 30px 0; /* spacing above and below */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* smooth transitions */
 }
 
+/* the actual profile picture */
 .hero-image {
     width: 350px;
     height: 350px;
-    border-radius: 50%;
-    border: 8px solid var(--pastel-pink);
-    box-shadow: 0 0 0 12px var(--gentle-purple), 0 0 0 20px var(--soft-pink), 0 15px 40px rgba(0, 0, 0, 0.2);
-    object-fit: cover;
-    animation: imageFloat 3s ease-in-out infinite;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 50%; /* makes it circular */
+    border: 8px solid var(--pastel-pink); /* pink border */
+    box-shadow: 0 0 0 12px var(--gentle-purple), 0 0 0 20px var(--soft-pink), 0 15px 40px rgba(0, 0, 0, 0.2); /* layered colorful shadows */
+    object-fit: cover; /* makes sure image fills the circle without stretching */
+    animation: imageFloat 3s ease-in-out infinite; /* floats around */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* smooth changes */
 }
 
+/* spinning dashed border around the image */
 .image-border {
-    position: absolute;
+    position: absolute; /* positioned relative to the wrapper */
     top: -20px;
     left: -20px;
     right: -20px;
     bottom: -20px;
-    border: 3px dashed var(--border-color);
-    border-radius: 50%;
-    animation: rotateBorder 10s linear infinite;
-    transition: opacity 0.3s ease;
+    border: 3px dashed var(--border-color); /* dashed pink border */
+    border-radius: 50%; /* circular */
+    animation: rotateBorder 10s linear infinite; /* spins continuously */
+    transition: opacity 0.3s ease; /* fades smoothly */
 }
 
+/* heartbeat animation for the heart emojis */
 @keyframes heartBeat {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.3); }
+    0%, 100% { transform: scale(1); } /* normal size */
+    50% { transform: scale(1.3); } /* gets bigger like a beating heart */
 }
 
+/* container for the heart emojis below the image */
 .decorative-hearts {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    margin-top: 20px;
-    font-size: 2rem;
-    transition: opacity 0.3s ease;
+    display: flex; /* side by side */
+    gap: 30px; /* space between hearts */
+    justify-content: center; /* centered */
+    margin-top: 20px; /* space above */
+    font-size: 2rem; /* big hearts */
+    transition: opacity 0.3s ease; /* smooth fading */
 }
 
+/* individual heart styling */
 .heart {
-    animation: heartBeat 1.5s ease-in-out infinite;
+    animation: heartBeat 1.5s ease-in-out infinite; /* beats continuously */
 }
 
-.heart:nth-child(2) { animation-delay: 0.3s; }
-.heart:nth-child(3) { animation-delay: 0.6s; }
+/* each heart starts animating at different times so they dont all beat together */
+.heart:nth-child(2) { animation-delay: 0.3s; } /* second heart */
+.heart:nth-child(3) { animation-delay: 0.6s; } /* third heart */
 
+/* scroll down indicator at the bottom */
 .scroll-indicator {
-    position: absolute;
+    position: absolute; /* positioned at bottom of hero */
     bottom: 30px;
     font-size: 1.2rem;
-    color: #FF1493;
+    color: #FF1493; /* hot pink */
     font-weight: bold;
-    animation: bounce 2s ease-in-out infinite;
-    text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.7);
-    transition: opacity 0.3s ease;
+    animation: bounce 2s ease-in-out infinite; /* bounces to grab attention */
+    text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.7); /* white shadow for visibility */
+    transition: opacity 0.3s ease; /* fades smoothly */
 }
 
 /* ========================================
    Main Container Layout
 ======================================== */
+/* this is the main grid layout that holds the side panels and content */
 .main-container {
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    display: grid;
-    grid-template-columns: 250px 1fr 250px;
-    gap: 30px;
-    position: relative;
-    z-index: 50;
+    max-width: 1600px; /* doesnt get too wide on big screens */
+    margin: 0 auto; /* centers it */
+    padding: 40px 20px; /* space around edges */
+    display: grid; /* css grid is so powerful */
+    grid-template-columns: 250px 1fr 250px; /* left sidebar, main content, right sidebar */
+    gap: 30px; /* space between columns */
+    position: relative; /* for the floating decorations */
+    z-index: 50; /* layering */
 }
 
 /* ========================================
    Side Panels
 ======================================== */
+/* animations for the side panel boxes */
+
+/* gentle floating animation */
 @keyframes panelFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
+    0%, 100% { transform: translateY(0); } /* normal position */
+    50% { transform: translateY(-8px); } /* floats up a bit */
 }
 
+/* pulsing heart animation for the little heart decorations */
 @keyframes pulseHeart {
-    0%, 100% { transform: scale(1); opacity: 0.3; }
-    50% { transform: scale(1.2); opacity: 0.6; }
+    0%, 100% { transform: scale(1); opacity: 0.3; } /* normal size kinda faded */
+    50% { transform: scale(1.2); opacity: 0.6; } /* gets bigger and brighter */
 }
 
+/* side panel container */
 .side-panel {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: column; /* stacks boxes vertically */
+    gap: 20px; /* space between boxes */
 }
 
+/* individual panel box styling */
 .panel-box {
-    background: rgba(255, 255, 255, 0.95);
-    border: 4px solid var(--border-color);
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 8px 8px 0px var(--pastel-pink), 0 10px 30px rgba(0, 0, 0, 0.1);
-    animation: panelFloat 4s ease-in-out infinite;
-    position: relative;
-    overflow: hidden;
+    background: rgba(255, 255, 255, 0.95); /* almost white but slightly see-through */
+    border: 4px solid var(--border-color); /* pink border */
+    border-radius: 20px; /* rounded corners */
+    padding: 20px; /* space inside */
+    box-shadow: 8px 8px 0px var(--pastel-pink), 0 10px 30px rgba(0, 0, 0, 0.1); /* retro shadow effect */
+    animation: panelFloat 4s ease-in-out infinite; /* floats gently */
+    position: relative; /* for the heart decoration */
+    overflow: hidden; /* keeps things inside */
 }
 
+/* little heart decoration in corner of each box */
 .panel-box::before {
-    content: '♡';
+    content: '♡'; /* heart outline */
     position: absolute;
     top: 5px;
     right: 5px;
     font-size: 1.2rem;
-    color: var(--pastel-pink);
-    animation: pulseHeart 2s ease-in-out infinite;
+    color: var(--pastel-pink); /* pink */
+    animation: pulseHeart 2s ease-in-out infinite; /* pulses */
 }
 
-.panel-box:nth-child(2) { animation-delay: 0.5s; }
-.panel-box:nth-child(3) { animation-delay: 1s; }
+/* makes each box start floating at different times */
+.panel-box:nth-child(2) { animation-delay: 0.5s; } /* second box */
+.panel-box:nth-child(3) { animation-delay: 1s; } /* third box */
 
+/* panel title styling */
 .panel-title {
-    font-family: var(--font-heading);
+    font-family: var(--font-heading); /* cute baloo font */
     font-size: 1.3rem;
-    color: #FF1493;
+    color: #FF1493; /* hot pink */
     text-align: center;
     margin-bottom: 15px;
-    text-shadow: 2px 2px 0px rgba(255, 182, 193, 0.5);
+    text-shadow: 2px 2px 0px rgba(255, 182, 193, 0.5); /* subtle shadow */
 }
 
+/* container for stuff inside panels */
 .panel-content {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: column; /* stacks items vertically */
+    gap: 10px; /* space between items */
 }
 
+/* retro style buttons in the panels */
 .retro-button {
     display: block;
-    text-decoration: none;
+    text-decoration: none; /* removes underline */
     text-align: center;
     padding: 10px;
-    background: linear-gradient(135deg, var(--soft-pink), var(--warm-peach));
-    color: #333;
+    background: linear-gradient(135deg, var(--soft-pink), var(--warm-peach)); /* pink to peach gradient */
+    color: #333; /* dark text */
     font-weight: bold;
-    border: 3px solid #FF9EC8;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    box-shadow: 4px 4px 0px rgba(255, 105, 180, 0.3);
+    border: 3px solid #FF9EC8; /* pink border */
+    border-radius: 10px; /* rounded corners */
+    transition: all 0.3s ease; /* smooth hover effect */
+    box-shadow: 4px 4px 0px rgba(255, 105, 180, 0.3); /* retro shadow */
 }
 
+/* button hover effect */
 .retro-button:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0px rgba(255, 105, 180, 0.5);
+    transform: translate(-2px, -2px); /* moves up and left */
+    box-shadow: 6px 6px 0px rgba(255, 105, 180, 0.5); /* bigger shadow */
 }
 
+/* decorative dotted line divider */
 .dotted-line {
-    border-top: 3px dotted var(--border-color);
-    margin: 15px 0;
+    border-top: 3px dotted var(--border-color); /* dotted pink line */
+    margin: 15px 0; /* space above and below */
 }
 
+/* container for the badge collection */
 .badge-collection {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
+    flex-direction: column; /* stacks badges vertically */
+    gap: 8px; /* space between badges */
 }
 
+/* individual pixel art style badges */
 .pixel-badge {
-    background: var(--gentle-purple);
-    color: var(--white);
+    background: var(--gentle-purple); /* purple background */
+    color: var(--white); /* white text */
     padding: 8px;
     text-align: center;
-    border: 2px solid #9B7EDE;
-    border-radius: 8px;
+    border: 2px solid #9B7EDE; /* darker purple border */
+    border-radius: 8px; /* rounded corners */
     font-size: 0.9rem;
     font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    cursor: default;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* subtle shadow */
+    transition: all 0.3s ease; /* smooth hover effect */
+    cursor: default; /* not clickable */
 }
 
+/* badge hover effect */
 .pixel-badge:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(155, 126, 222, 0.3);
-    background: linear-gradient(135deg, var(--gentle-purple), var(--pastel-pink));
+    transform: scale(1.05); /* gets slightly bigger */
+    box-shadow: 0 6px 12px rgba(155, 126, 222, 0.3); /* bigger purple shadow */
+    background: linear-gradient(135deg, var(--gentle-purple), var(--pastel-pink)); /* gradient on hover */
 }
 
 /* Mascot Styles */
+/* cute little mascot character in the sidebar */
+
+/* wiggle animation for the mascot face */
 @keyframes mascotWiggle {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-5deg); }
-    75% { transform: rotate(5deg); }
+    0%, 100% { transform: rotate(0deg); } /* normal angle */
+    25% { transform: rotate(-5deg); } /* tilts left */
+    75% { transform: rotate(5deg); } /* tilts right */
 }
 
+/* mascot container box */
 .mascot-box {
-    background: linear-gradient(135deg, var(--light-pink), var(--warm-peach));
+    background: linear-gradient(135deg, var(--light-pink), var(--warm-peach)); /* pink gradient */
     display: flex;
-    justify-content: center;
+    justify-content: center; /* centers mascot */
     align-items: center;
 }
 
@@ -392,101 +448,117 @@ body::after {
     justify-content: center;
 }
 
+/* the actual mascot face circle */
 .mascot-face {
-    background: var(--white);
+    background: var(--white); /* white face */
     width: 100px;
     height: 100px;
-    border-radius: 50%;
-    border: 4px solid var(--pastel-pink);
+    border-radius: 50%; /* perfect circle */
+    border: 4px solid var(--pastel-pink); /* pink border */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* stacks eyes and mouth */
     justify-content: center;
     align-items: center;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    animation: mascotWiggle 2s ease-in-out infinite;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* shadow */
+    animation: mascotWiggle 2s ease-in-out infinite; /* wiggles back and forth */
 }
 
+/* mascot eyes */
 .mascot-eyes {
     display: flex;
-    gap: 15px;
-    font-size: 1.5rem;
-    margin-bottom: 5px;
+    gap: 15px; /* space between eyes */
+    font-size: 1.5rem; /* big eyes */
+    margin-bottom: 5px; /* space below */
 }
 
+/* mascot mouth */
 .mascot-mouth {
     font-size: 1.2rem;
-    color: #FF1493;
+    color: #FF1493; /* pink mouth */
 }
 
 /* Decorative Right Panel */
+/* just cute decorations on the right side */
+
+/* gentle floating animation */
 @keyframes decorativeFloat {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-10px); } /* floats up */
 }
 
+/* spinning animation */
 @keyframes decorativeSpin {
     from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    to { transform: rotate(360deg); } /* spins all the way around */
 }
 
+/* decorative box with gradient background */
 .decorative-box {
-    background: linear-gradient(135deg, var(--soft-pink), var(--warm-peach), var(--pastel-pink));
-    min-height: 150px;
+    background: linear-gradient(135deg, var(--soft-pink), var(--warm-peach), var(--pastel-pink)); /* pink gradient */
+    min-height: 150px; /* at least this tall */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+/* container for decorative emojis */
 .decorative-elements {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    font-size: 3rem;
-    animation: decorativeFloat 3s ease-in-out infinite;
+    flex-direction: column; /* stacks vertically */
+    gap: 20px; /* space between emojis */
+    font-size: 3rem; /* big emojis */
+    animation: decorativeFloat 3s ease-in-out infinite; /* floats gently */
 }
 
+/* each decorative element spins */
 .deco-star,
 .deco-heart,
 .deco-flower {
-    animation: decorativeSpin 4s linear infinite;
+    animation: decorativeSpin 4s linear infinite; /* spins continuously */
 }
 
+/* different timing for each so they dont sync */
 .deco-heart { animation-delay: 0.5s; }
 .deco-flower { animation-delay: 1s; }
 
 /* ========================================
    Main Content Area
 ======================================== */
+/* this is where all the actual content goes (about me, gallery, etc) */
+
 .content-area {
     display: flex;
-    flex-direction: column;
-    gap: 40px;
+    flex-direction: column; /* stacks sections vertically */
+    gap: 40px; /* space between sections */
 }
 
+/* slide in animation for content sections */
 @keyframes sectionSlideIn {
-    from { opacity: 0; transform: translateX(-30px); }
-    to { opacity: 1; transform: translateX(0); }
+    from { opacity: 0; transform: translateX(-30px); } /* invisible and to the left */
+    to { opacity: 1; transform: translateX(0); } /* fades in and slides to normal position */
 }
 
+/* main content section box styling */
 .content-section {
-    background: rgba(255, 255, 255, 0.95);
-    border: 5px solid var(--border-color);
-    border-radius: 30px;
-    padding: 40px;
-    box-shadow: 12px 12px 0px var(--gentle-purple), 0 15px 40px rgba(0, 0, 0, 0.15);
-    animation: sectionSlideIn 1s ease-out;
-    position: relative;
+    background: rgba(255, 255, 255, 0.95); /* almost white but slightly see-through */
+    border: 5px solid var(--border-color); /* pink border */
+    border-radius: 30px; /* rounded corners */
+    padding: 40px; /* space inside */
+    box-shadow: 12px 12px 0px var(--gentle-purple), 0 15px 40px rgba(0, 0, 0, 0.15); /* retro purple shadow */
+    animation: sectionSlideIn 1s ease-out; /* slides in when you scroll to it */
+    position: relative; /* for decorative elements */
 }
 
+/* flower decoration in corner of sections */
 .content-section::after {
-    content: '✿';
+    content: '✿'; /* flower emoji */
     position: absolute;
     bottom: 10px;
     right: 20px;
     font-size: 2rem;
-    color: var(--pastel-pink);
-    opacity: 0.4;
-    animation: rotateBorder 6s linear infinite;
+    color: var(--pastel-pink); /* pink */
+    opacity: 0.4; /* faded */
+    animation: rotateBorder 6s linear infinite; /* spins slowly */
 }
 
 /* Section Headers */
