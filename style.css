@@ -521,6 +521,244 @@ body::after {
 .deco-heart { animation-delay: 0.5s; }
 .deco-flower { animation-delay: 1s; }
 
+/* Sticker Decoration Panel */
+.sticker-decoration-panel {
+    background: linear-gradient(135deg, var(--light-pink), var(--warm-peach));
+}
+
+.sticker-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 10px;
+}
+
+@keyframes stickerBounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-8px) scale(1.05); }
+}
+
+.deco-sticker {
+    width: 100%;
+    height: auto;
+    max-width: 80px;
+    object-fit: contain;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.deco-sticker:hover {
+    animation: stickerBounce 0.6s ease-in-out;
+    filter: drop-shadow(4px 4px 8px rgba(255, 105, 180, 0.4));
+}
+
+.deco-sticker:nth-child(1) { animation-delay: 0s; }
+.deco-sticker:nth-child(2) { animation-delay: 0.2s; }
+.deco-sticker:nth-child(3) { animation-delay: 0.4s; }
+.deco-sticker:nth-child(4) { animation-delay: 0.6s; }
+.deco-sticker:nth-child(5) { animation-delay: 0.8s; }
+
+/* Floating Decorative Stickers (Background) */
+.floating-decorations {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+@keyframes floatAround {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 0.6;
+    }
+    25% { 
+        transform: translate(30px, -40px) rotate(10deg) scale(1.1);
+        opacity: 0.8;
+    }
+    50% { 
+        transform: translate(-20px, -80px) rotate(-10deg) scale(0.9);
+        opacity: 0.7;
+    }
+    75% { 
+        transform: translate(40px, -60px) rotate(15deg) scale(1.05);
+        opacity: 0.75;
+    }
+}
+
+@keyframes floatAroundReverse {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 0.65;
+    }
+    25% { 
+        transform: translate(-30px, 40px) rotate(-12deg) scale(0.95);
+        opacity: 0.75;
+    }
+    50% { 
+        transform: translate(25px, 70px) rotate(8deg) scale(1.08);
+        opacity: 0.8;
+    }
+    75% { 
+        transform: translate(-35px, 50px) rotate(-15deg) scale(0.92);
+        opacity: 0.7;
+    }
+}
+
+@keyframes gentleFloat {
+    0%, 100% { 
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.5;
+    }
+    50% { 
+        transform: translateY(-20px) rotate(5deg);
+        opacity: 0.7;
+    }
+}
+
+.float-deco {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    opacity: 0.5;
+    animation: floatAround 20s ease-in-out infinite;
+    filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.15));
+}
+
+/* Pokemon stickers positioned throughout the page */
+.float-deco-1 {
+    top: 10%;
+    right: 8%;
+    width: 90px;
+    animation: floatAround 18s ease-in-out infinite;
+}
+
+.float-deco-2 {
+    top: 25%;
+    left: 5%;
+    width: 110px;
+    animation: floatAroundReverse 22s ease-in-out infinite;
+    animation-delay: 2s;
+}
+
+.float-deco-3 {
+    top: 50%;
+    right: 12%;
+    width: 95px;
+    animation: gentleFloat 15s ease-in-out infinite;
+    animation-delay: 4s;
+}
+
+.float-deco-4 {
+    bottom: 30%;
+    left: 8%;
+    width: 105px;
+    animation: floatAround 24s ease-in-out infinite;
+    animation-delay: 6s;
+}
+
+.float-deco-5 {
+    top: 40%;
+    left: 15%;
+    width: 85px;
+    animation: floatAroundReverse 19s ease-in-out infinite;
+    animation-delay: 3s;
+}
+
+.float-deco-6 {
+    bottom: 15%;
+    right: 10%;
+    width: 100px;
+    animation: floatAround 21s ease-in-out infinite;
+    animation-delay: 8s;
+}
+
+.float-deco-7 {
+    top: 15%;
+    left: 25%;
+    width: 80px;
+    animation: gentleFloat 17s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+.float-deco-8 {
+    top: 60%;
+    right: 20%;
+    width: 95px;
+    animation: floatAroundReverse 20s ease-in-out infinite;
+    animation-delay: 5s;
+}
+
+.float-deco-9 {
+    bottom: 40%;
+    left: 18%;
+    width: 90px;
+    animation: floatAround 23s ease-in-out infinite;
+    animation-delay: 7s;
+}
+
+.float-deco-10 {
+    top: 35%;
+    right: 5%;
+    width: 100px;
+    animation: gentleFloat 16s ease-in-out infinite;
+    animation-delay: 9s;
+}
+
+.float-deco-11 {
+    bottom: 25%;
+    left: 12%;
+    width: 105px;
+    animation: floatAroundReverse 25s ease-in-out infinite;
+    animation-delay: 4s;
+}
+
+.float-deco-12 {
+    top: 70%;
+    right: 15%;
+    width: 85px;
+    animation: floatAround 19s ease-in-out infinite;
+    animation-delay: 10s;
+}
+
+.float-deco-13 {
+    bottom: 50%;
+    left: 30%;
+    width: 95px;
+    animation: gentleFloat 18s ease-in-out infinite;
+    animation-delay: 2s;
+}
+
+/* Responsive adjustments for decorations */
+@media (max-width: 968px) {
+    .sticker-decoration-panel {
+        display: none;
+    }
+    
+    .float-deco {
+        width: 70px !important;
+        opacity: 0.4;
+    }
+    
+    /* Hide some stickers on tablet for less clutter */
+    .float-deco-7,
+    .float-deco-9,
+    .float-deco-11,
+    .float-deco-13 {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .floating-decorations {
+        display: none;
+    }
+}
+
 /* ========================================
    Main Content Area
 ======================================== */
@@ -802,6 +1040,608 @@ body::after {
     font-size: 1.1rem;
     font-style: italic;
     opacity: 0.95;
+}
+
+/* ========================================
+   Poems Section
+======================================== */
+/* CSS-only accordion with cute Y2K aesthetic */
+
+.poems-intro {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #FF1493;
+    font-family: var(--font-heading);
+    margin-bottom: 30px;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--light-pink), var(--warm-peach));
+    border-radius: 20px;
+    border: 3px dashed var(--border-color);
+}
+
+/* Featured Quote Section */
+.featured-quote-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px 0;
+    position: relative;
+}
+
+.quote-stars-left,
+.quote-stars-right {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 2rem;
+}
+
+.quote-stars-left span {
+    animation: twinkleStar 2s ease-in-out infinite;
+}
+
+.quote-stars-right span {
+    animation: twinkleStar 2s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+.quote-stars-left span:nth-child(2),
+.quote-stars-right span:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.quote-stars-left span:nth-child(3),
+.quote-stars-right span:nth-child(3) {
+    animation-delay: 1.5s;
+}
+
+.quote-container {
+    flex: 1;
+    max-width: 900px;
+}
+
+.quote-frame {
+    background: linear-gradient(135deg, #F7B2BD, #FFEB8A, #CEB7FE);
+    padding: 6px;
+    border-radius: 25px;
+    border: 5px solid var(--white);
+    box-shadow: 
+        8px 8px 0px rgba(206, 183, 254, 0.6),
+        0 15px 40px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: panelFloat 4s ease-in-out infinite;
+}
+
+.quote-frame::before,
+.quote-frame::after {
+    content: '✨';
+    position: absolute;
+    font-size: 2.5rem;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+.quote-frame::before {
+    top: -15px;
+    left: -15px;
+}
+
+.quote-frame::after {
+    bottom: -15px;
+    right: -15px;
+    animation-delay: 1s;
+}
+
+.quote-decoration-top,
+.quote-decoration-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.8rem;
+    padding: 10px 0;
+}
+
+.quote-decoration-top span,
+.quote-decoration-bottom span {
+    animation: decorationBounce 1.5s ease-in-out infinite;
+}
+
+.quote-decoration-top span:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.quote-decoration-top span:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.quote-decoration-bottom span:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.quote-decoration-bottom span:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+.featured-quote {
+    background: var(--white);
+    padding: 35px 40px;
+    border-radius: 20px;
+    margin: 0;
+    position: relative;
+}
+
+.quote-text {
+    font-family: 'Varela Round', 'Comic Sans MS', cursive;
+    font-size: 1.3rem;
+    line-height: 1.9;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(247, 178, 189, 0.3);
+    position: relative;
+}
+
+.quote-text::before {
+    content: '"';
+    font-size: 4rem;
+    color: var(--pastel-pink);
+    position: absolute;
+    top: -30px;
+    left: -10px;
+    font-family: Georgia, serif;
+    opacity: 0.5;
+}
+
+.quote-text::after {
+    content: '"';
+    font-size: 4rem;
+    color: var(--gentle-purple);
+    position: absolute;
+    bottom: -50px;
+    right: -10px;
+    font-family: Georgia, serif;
+    opacity: 0.5;
+}
+
+.quote-author {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #666;
+    text-align: right;
+    margin-top: 25px;
+    padding-right: 15px;
+}
+
+.quote-author cite {
+    font-style: italic;
+    color: #FF1493;
+}
+
+/* Responsive adjustments for featured quote */
+@media (max-width: 968px) {
+    .featured-quote-section {
+        gap: 15px;
+        margin: 30px 0;
+    }
+    
+    .quote-stars-left,
+    .quote-stars-right {
+        font-size: 1.5rem;
+        gap: 12px;
+    }
+    
+    .quote-frame {
+        padding: 5px;
+        border: 4px solid var(--white);
+        box-shadow: 
+            6px 6px 0px rgba(206, 183, 254, 0.6),
+            0 12px 30px rgba(0, 0, 0, 0.18);
+    }
+    
+    .featured-quote {
+        padding: 25px 30px;
+    }
+    
+    .quote-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+    
+    .quote-text::before,
+    .quote-text::after {
+        font-size: 3rem;
+    }
+    
+    .quote-author {
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .featured-quote-section {
+        flex-direction: column;
+        gap: 20px;
+        margin: 25px 0;
+    }
+    
+    .quote-stars-left,
+    .quote-stars-right {
+        flex-direction: row;
+        font-size: 1.8rem;
+        gap: 15px;
+    }
+    
+    .quote-frame {
+        padding: 4px;
+        border: 3px solid var(--white);
+        border-radius: 20px;
+        box-shadow: 
+            5px 5px 0px rgba(206, 183, 254, 0.6),
+            0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .quote-frame::before,
+    .quote-frame::after {
+        font-size: 2rem;
+    }
+    
+    .quote-frame::before {
+        top: -12px;
+        left: -12px;
+    }
+    
+    .quote-frame::after {
+        bottom: -12px;
+        right: -12px;
+    }
+    
+    .quote-decoration-top,
+    .quote-decoration-bottom {
+        font-size: 1.5rem;
+        gap: 15px;
+        padding: 8px 0;
+    }
+    
+    .featured-quote {
+        padding: 20px 25px;
+        border-radius: 18px;
+    }
+    
+    .quote-text {
+        font-size: 1rem;
+        line-height: 1.7;
+        padding: 0 5px;
+    }
+    
+    .quote-text::before {
+        font-size: 2.5rem;
+        top: -25px;
+        left: -5px;
+    }
+    
+    .quote-text::after {
+        font-size: 2.5rem;
+        bottom: -40px;
+        right: -5px;
+    }
+    
+    .quote-author {
+        font-size: 0.9rem;
+        margin-top: 18px;
+        padding-right: 10px;
+        text-align: center;
+    }
+}
+
+.poems-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin: 30px 0;
+}
+
+/* Individual poem card styling */
+.poem-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 4px solid var(--border-color);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 8px 8px 0px var(--pastel-pink), 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.poem-card::before {
+    content: '♡';
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    font-size: 2rem;
+    color: var(--soft-pink);
+    opacity: 0.5;
+    animation: pulseHeart 2s ease-in-out infinite;
+    z-index: 1;
+}
+
+.poem-card:hover {
+    transform: translateY(-5px) rotate(1deg);
+    box-shadow: 12px 12px 0px var(--pastel-pink), 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Hide the checkbox but keep it functional */
+.poem-toggle {
+    display: none;
+}
+
+/* Clickable header for the accordion */
+.poem-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--soft-pink), var(--warm-peach));
+    border-bottom: 3px solid var(--border-color);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.poem-header:hover {
+    background: linear-gradient(135deg, var(--pastel-pink), var(--soft-pink));
+}
+
+.poem-icon {
+    font-size: 2rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.poem-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: #FF1493;
+    margin: 0;
+    text-shadow: 2px 2px 0px rgba(255, 182, 193, 0.5);
+}
+
+/* Category badges */
+.poem-category {
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border: 2px solid;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: var(--font-body);
+}
+
+.poem-category.love {
+    background: linear-gradient(135deg, #FFB6D9, #FF69B4);
+    color: var(--white);
+    border-color: #FF1493;
+}
+
+.poem-category.nostalgia {
+    background: linear-gradient(135deg, var(--gentle-purple), #9B7EDE);
+    color: var(--white);
+    border-color: #7B68EE;
+}
+
+.poem-category.joy {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: var(--white);
+    border-color: #FF8C00;
+}
+
+.poem-category.dreams {
+    background: linear-gradient(135deg, #87CEEB, #4682B4);
+    color: var(--white);
+    border-color: #1E90FF;
+}
+
+.poem-category.whimsy {
+    background: linear-gradient(135deg, #FF69B4, #FFB6D9, #DDA0DD);
+    color: var(--white);
+    border-color: #FF1493;
+}
+
+/* Expand/collapse icon */
+.expand-icon {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FF1493;
+    transition: transform 0.3s ease;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border-radius: 50%;
+    border: 3px solid var(--border-color);
+}
+
+/* Rotate icon when expanded */
+.poem-toggle:checked + .poem-header .expand-icon {
+    transform: rotate(45deg);
+}
+
+/* Preview text (visible when collapsed) */
+.poem-preview {
+    padding: 15px 20px;
+    font-style: italic;
+    color: #666;
+    background: var(--light-pink);
+    border-bottom: 2px dotted var(--border-color);
+}
+
+.poem-preview p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Main poem content (hidden by default) */
+.poem-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Show content when checkbox is checked */
+.poem-toggle:checked ~ .poem-content {
+    max-height: 2000px;
+}
+
+/* Hide preview when expanded */
+.poem-toggle:checked ~ .poem-preview {
+    display: none;
+}
+
+.poem-text {
+    padding: 25px;
+    background: var(--white);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.poem-text p {
+    margin-bottom: 20px;
+    text-align: left;
+    position: relative;
+    padding-left: 15px;
+}
+
+.poem-text p::before {
+    content: '✿';
+    position: absolute;
+    left: 0;
+    color: var(--pastel-pink);
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+/* Poems footer */
+.poems-footer {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-badge {
+    background: linear-gradient(135deg, var(--gentle-purple), var(--pastel-pink));
+    color: var(--white);
+    padding: 15px 30px;
+    border-radius: 20px;
+    border: 4px solid var(--white);
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: panelFloat 3s ease-in-out infinite;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments for poems */
+@media (max-width: 968px) {
+    .poems-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .poem-header {
+        grid-template-columns: auto 1fr auto;
+        gap: 10px;
+    }
+    
+    .poem-category {
+        grid-column: 2 / 3;
+        justify-self: start;
+        margin-top: 8px;
+    }
+    
+    .expand-icon {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+    }
+    
+    .poem-title {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .poems-intro {
+        font-size: 1rem;
+        padding: 12px;
+    }
+    
+    .poem-card {
+        border: 3px solid var(--border-color);
+        box-shadow: 6px 6px 0px var(--pastel-pink), 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .poem-header {
+        padding: 15px;
+        grid-template-columns: auto 1fr auto;
+        gap: 8px;
+    }
+    
+    .poem-icon {
+        font-size: 1.5rem;
+    }
+    
+    .poem-title {
+        font-size: 1.2rem;
+        grid-column: 2 / 3;
+    }
+    
+    .poem-category {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+        justify-self: start;
+        margin-top: 8px;
+        font-size: 0.75rem;
+        padding: 4px 10px;
+    }
+    
+    .expand-icon {
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+        width: 25px;
+        height: 25px;
+        font-size: 1.5rem;
+        border: 2px solid var(--border-color);
+    }
+    
+    .poem-preview {
+        padding: 12px 15px;
+    }
+    
+    .poem-preview p {
+        font-size: 0.9rem;
+    }
+    
+    .poem-text {
+        padding: 20px 15px;
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+    
+    .poem-text p {
+        margin-bottom: 15px;
+        padding-left: 12px;
+    }
+    
+    .footer-badge {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
 }
 
 /* ========================================
