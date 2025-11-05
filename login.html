@@ -43,6 +43,9 @@
         </div>
     </div>
 
+    <!-- User credentials database -->
+    <script src="credentials.js"></script>
+    
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -52,15 +55,19 @@
             const errorMessage = document.getElementById('errorMessage');
             const loginBox = document.querySelector('.login-box');
             
-            // Check credentials
-            if (username === 'shanelle' && password === '1234') {
+            // Validate credentials using the database
+            const result = validateCredentials(username, password);
+            
+            if (result.success) {
                 // Set session storage
                 sessionStorage.setItem('isLoggedIn', 'true');
+                sessionStorage.setItem('username', result.username);
                 
                 // Redirect to main page
                 window.location.href = 'index.html';
             } else {
                 // Show error message
+                errorMessage.textContent = '❌ ' + result.message;
                 errorMessage.style.display = 'block';
                 loginBox.classList.add('shake');
                 
