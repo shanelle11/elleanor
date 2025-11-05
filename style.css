@@ -1750,8 +1750,8 @@ body::after {
 
 .lightbox-close {
     position: absolute;
-    top: -20px;
-    right: -20px;
+    top: 20px;
+    right: 20px;
     width: 50px;
     height: 50px;
     background: linear-gradient(135deg, #FF1493, var(--pastel-pink));
@@ -1767,6 +1767,7 @@ body::after {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     line-height: 1;
+    z-index: 100;
 }
 
 .lightbox-close:hover {
@@ -1805,22 +1806,20 @@ body::after {
 .poem-lightbox-header {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 25px;
+    gap: 12px;
+    padding: 15px 25px;
+    padding-right: 80px;
     background: linear-gradient(135deg, var(--soft-pink), var(--warm-peach));
     border-bottom: 4px solid var(--border-color);
-    position: sticky;
-    top: 0;
-    z-index: 10;
 }
 
 .poem-lightbox-header .poem-icon {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
 }
 
 .poem-lightbox-header .poem-title {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 1.3rem;
     color: #FF1493;
     margin: 0;
     text-shadow: 2px 2px 0px rgba(255, 182, 193, 0.5);
