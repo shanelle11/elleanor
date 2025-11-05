@@ -17,6 +17,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Varela+Round&family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        // Check if user is logged in
+        if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'login.html';
+        }
+    </script>
 </head>
 <body>
     <a class="skip-link" href="#about">Skip to content</a>
@@ -195,7 +201,7 @@
                         <a href="#poem1" class="poem-card-link">
                             <div class="poem-header">
                                 <span class="poem-icon">🌧️</span>
-                                <h3 class="poem-title">Love and Grief</h3>
+                                <h3 class="poem-title">Draft 1: Love and Grief</h3>
                                 <span class="poem-category love loss">Love & Loss</span>
                             </div>
                             <div class="poem-preview">
@@ -212,7 +218,7 @@
                         <a href="#poem2" class="poem-card-link">
                             <div class="poem-header">
                                 <span class="poem-icon">🕊️</span>
-                                <h3 class="poem-title">To Gracey</h3>
+                                <h3 class="poem-title">Draft 2: To Gracey</h3>
                                 <span class="poem-category love loss">Love & Loss</span>
                             </div>
                             <div class="poem-preview">
@@ -229,7 +235,7 @@
                         <a href="#poem3" class="poem-card-link">
                             <div class="poem-header">
                                 <span class="poem-icon">✉️</span>
-                                <h3 class="poem-title">Last Letter to your Lover</h3>
+                                <h3 class="poem-title">Draft 3: Last Letter to your Lover</h3>
                                 <span class="poem-category love">Love</span>
                             </div>
                             <div class="poem-preview">
@@ -246,7 +252,7 @@
                         <a href="#poem4" class="poem-card-link">
                             <div class="poem-header">
                                 <span class="poem-icon">🎵</span>
-                                <h3 class="poem-title">Music Box</h3>
+                                <h3 class="poem-title">Draft 4: Music Box</h3>
                                 <span class="poem-category dreams">Dreams</span>
                             </div>
                             <div class="poem-preview">
@@ -257,11 +263,181 @@
                             </div>
                         </a>
                     </div>
+
+                    <!-- poem 5 - The Almosts -->
+                    <div class="poem-card">
+                        <a href="#poem5" class="poem-card-link">
+                            <div class="poem-header">
+                                <span class="poem-icon">🔥</span>
+                                <h3 class="poem-title">Draft 5: The Almosts</h3>
+                                <span class="poem-category nostalgia">Nostalgia</span>
+                            </div>
+                            <div class="poem-preview">
+                                <p>"You're staring again..."</p>
+                            </div>
+                            <div class="poem-overlay">
+                                <span class="overlay-text">✨ Read ✨</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- poem 6 - Violence Unstitched -->
+                    <div class="poem-card">
+                        <a href="#poem6" class="poem-card-link">
+                            <div class="poem-header">
+                                <span class="poem-icon">⚡</span>
+                                <h3 class="poem-title">Draft 6: Violence Unstitched</h3>
+                                <span class="poem-category whimsy">Reflection</span>
+                            </div>
+                            <div class="poem-preview">
+                                <p>"Sometimes, I fear I will become what I hate..."</p>
+                            </div>
+                            <div class="poem-overlay">
+                                <span class="overlay-text">✨ Read ✨</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- poem 7 - Speak Now -->
+                    <div class="poem-card">
+                        <a href="#poem7" class="poem-card-link">
+                            <div class="poem-header">
+                                <span class="poem-icon">💍</span>
+                                <h3 class="poem-title">Speak Now or Forever Hold Your Peace</h3>
+                                <span class="poem-category love loss">Love & Loss</span>
+                            </div>
+                            <div class="poem-preview">
+                                <p>"Let me miss him now, in the rawness of midnight..."</p>
+                            </div>
+                            <div class="poem-overlay">
+                                <span class="overlay-text">✨ Read ✨</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- poem 8 - Stay, Even in Decay -->
+                    <div class="poem-card">
+                        <a href="#poem8" class="poem-card-link">
+                            <div class="poem-header">
+                                <span class="poem-icon">🥀</span>
+                                <h3 class="poem-title">Draft 8: Stay, Even in Decay</h3>
+                                <span class="poem-category love loss">Love & Loss</span>
+                            </div>
+                            <div class="poem-preview">
+                                <p>"You don't even know how to leave..."</p>
+                            </div>
+                            <div class="poem-overlay">
+                                <span class="overlay-text">✨ Read ✨</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- poem 9 - A Eulogy for the Living -->
+                    <div class="poem-card">
+                        <a href="#poem9" class="poem-card-link">
+                            <div class="poem-header">
+                                <span class="poem-icon">🕊️</span>
+                                <h3 class="poem-title">Draft 9: A Eulogy for the Living</h3>
+                                <span class="poem-category nostalgia">Nostalgia</span>
+                            </div>
+                            <div class="poem-preview">
+                                <p>"You're growing up so fast..."</p>
+                            </div>
+                            <div class="poem-overlay">
+                                <span class="overlay-text">✨ Read ✨</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- poem 10 - Soda Theory -->
+                    <div class="poem-card">
+                        <a href="#poem10" class="poem-card-link">
+                            <div class="poem-header">
+                                <span class="poem-icon">🥤</span>
+                                <h3 class="poem-title">Draft 10: Soda Theory</h3>
+                                <span class="poem-category love">Love</span>
+                            </div>
+                            <div class="poem-preview">
+                                <p>"I thought you'd hate it if I drank your Soda..."</p>
+                            </div>
+                            <div class="poem-overlay">
+                                <span class="overlay-text">✨ Read ✨</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- poem 11 - A Conversation -->
+                    <div class="poem-card">
+                        <a href="#poem11" class="poem-card-link">
+                            <div class="poem-header">
+                                <span class="poem-icon">🔄</span>
+                                <h3 class="poem-title">Draft 11: A Conversation</h3>
+                                <span class="poem-category whimsy">Reflection</span>
+                            </div>
+                            <div class="poem-preview">
+                                <p>"It's March again..."</p>
+                            </div>
+                            <div class="poem-overlay">
+                                <span class="overlay-text">✨ Read ✨</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- poem 12 - Self Sabotage -->
+                    <div class="poem-card">
+                        <a href="#poem12" class="poem-card-link">
+                            <div class="poem-header">
+                                <span class="poem-icon">🧺</span>
+                                <h3 class="poem-title">Self Sabotage</h3>
+                                <span class="poem-category whimsy">Reflection</span>
+                            </div>
+                            <div class="poem-preview">
+                                <p>"All the whites came out clean except one..."</p>
+                            </div>
+                            <div class="poem-overlay">
+                                <span class="overlay-text">✨ Read ✨</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- poem 13 - Me Before You -->
+                    <div class="poem-card">
+                        <a href="#poem13" class="poem-card-link">
+                            <div class="poem-header">
+                                <span class="poem-icon">💔</span>
+                                <h3 class="poem-title">Draft 13: Me Before You</h3>
+                                <span class="poem-category love">Love</span>
+                            </div>
+                            <div class="poem-preview">
+                                <p>"You forgave me for things I would've set fire to you for..."</p>
+                            </div>
+                            <div class="poem-overlay">
+                                <span class="overlay-text">✨ Read ✨</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- poem 14 - Survivor's Guilt -->
+                    <div class="poem-card">
+                        <a href="#poem14" class="poem-card-link">
+                            <div class="poem-header">
+                                <span class="poem-icon">⛓️</span>
+                                <h3 class="poem-title">Draft 15: Survivor's Guilt</h3>
+                                <span class="poem-category whimsy">Reflection</span>
+                            </div>
+                            <div class="poem-preview">
+                                <p>"I bite down on joy until my lips bleed..."</p>
+                            </div>
+                            <div class="poem-overlay">
+                                <span class="overlay-text">✨ Read ✨</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="poems-footer">
                     <div class="footer-badge">
-                        <span>✨ 4 of 15 poems • More coming soon! ✨</span>
+                        <span>✨ 14 poems • Collection Complete! ✨</span>
                     </div>
                 </div>
             </section>
@@ -443,7 +619,7 @@
             <a href="#poems" class="lightbox-close">✕</a>
             <div class="poem-lightbox-header">
                 <span class="poem-icon">🌧️</span>
-                <h3 class="poem-title">Love and Grief</h3>
+                <h3 class="poem-title">Draft 1: Love and Grief</h3>
             </div>
             <div class="poem-lightbox-body">
                 <p>November.<br>
@@ -591,7 +767,7 @@
             <a href="#poems" class="lightbox-close">✕</a>
             <div class="poem-lightbox-header">
                 <span class="poem-icon">🕊️</span>
-                <h3 class="poem-title">To Gracey</h3>
+                <h3 class="poem-title">Draft 2: To Gracey</h3>
             </div>
             <div class="poem-lightbox-body">
                 <p>This house is too quiet.</p>
@@ -688,7 +864,7 @@
             <a href="#poems" class="lightbox-close">✕</a>
             <div class="poem-lightbox-header">
                 <span class="poem-icon">✉️</span>
-                <h3 class="poem-title">Last Letter to your Lover</h3>
+                <h3 class="poem-title">Draft 3: Last Letter to your Lover</h3>
             </div>
             <div class="poem-lightbox-body">
                 <p>I write to you one last time.</p>
@@ -769,7 +945,7 @@
             <a href="#poems" class="lightbox-close">✕</a>
             <div class="poem-lightbox-header">
                 <span class="poem-icon">🎵</span>
-                <h3 class="poem-title">Music Box</h3>
+                <h3 class="poem-title">Draft 4: Music Box</h3>
             </div>
             <div class="poem-lightbox-body">
                 <p>The world spins in slow, deliberate turns.</p>
@@ -832,6 +1008,565 @@
         </div>
     </div>
 
+    <div id="poem5" class="lightbox poem-lightbox">
+        <div class="lightbox-content poem-lightbox-content">
+            <a href="#poems" class="lightbox-close">✕</a>
+            <div class="poem-lightbox-header">
+                <span class="poem-icon">🔥</span>
+                <h3 class="poem-title">Draft 5: The Almosts</h3>
+            </div>
+            <div class="poem-lightbox-body">
+                <p>"You're staring again."</p>
+
+                <p>"You always notice."</p>
+
+                <p>"Because I always look for you."</p>
+
+                <p>The words slip between us like smoke, curling at the edges, dissipating before they can settle. A breath apart, a universe between. We've always been like this—threading the needle between wanting and leaving, holding and letting go. A battle we never win.</p>
+
+                <p>"People like us don't end up together," he murmurs, his fingers ghosting the rim of his glass, as if drawing circles around something inevitable.</p>
+
+                <p>"People like us?"</p>
+
+                <p>"The almosts." His gaze meets mine, heavy, unreadable. "The ones who step too close to the fire but never burn."</p>
+
+                <p>The weight of it sits between us, thick and unrelenting. The city hums outside, but in this space, it is only us—us and the ache that never settles, only lingers.</p>
+
+                <p>"And what do we do then?" I ask, voice quieter now.</p>
+
+                <p>He tilts his head, watching me as if memorising the shape of my hesitation. "We pretend."</p>
+
+                <p>"And if I stop pretending?"</p>
+
+                <p>A pause. His breath catches, a flicker of something breaking through the cracks. A hand twitches, almost reaching, almost crossing that fragile line.</p>
+
+                <p>He exhales, slow, measured, as if weighing the weight of his own words before letting them go. "Then we unravel."</p>
+
+                <p>A pause—thick, suffocating. He looks at me like he already knows what I'll say, like he's read it in the silence between us, in the spaces where words should've been. And then, I lean back, just slightly, just enough to let the distance settle again.</p>
+
+                <p>"Then let us be ruins." I tilt my head, the corners of my lips curving—something between a smile and surrender.</p>
+
+                <p>And in the quiet that follows, I wonder if this is what heartbreak feels like—<br>
+                not a sharp, sudden thing, but a slow unraveling,<br>
+                a war never fought,<br>
+                a love never given the chance to lose.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="poem6" class="lightbox poem-lightbox">
+        <div class="lightbox-content poem-lightbox-content">
+            <a href="#poems" class="lightbox-close">✕</a>
+            <div class="poem-lightbox-header">
+                <span class="poem-icon">⚡</span>
+                <h3 class="poem-title">Draft 6: Violence Unstitched</h3>
+            </div>
+            <div class="poem-lightbox-body">
+                <p>Sometimes, I fear I will become what I hate.<br>
+                That his voice will slip into mine,<br>
+                sharp and heavy, cutting without a blade.<br>
+                That my hands will learn the language of fists,<br>
+                speaking in violence and my words twist.</p>
+
+                <p>I have spent my life watching him—<br>
+                studying every storm, every slammed door,<br>
+                every silence that followed like an aftershock.</p>
+
+                <p>I grew up watching love leave bruises.<br>
+                Not always on skin, but in the way my mother's hands shook when she reached for the salt at dinner.<br>
+                In the way she spoke—measured, careful, rehearsed.<br>
+                I learned that love meant walking on eggshells,<br>
+                that devotion looked a lot like endurance.</p>
+
+                <p>I swore I'd be different.<br>
+                I swore I'd unlearn the rage stitched into my name.</p>
+
+                <p>But what if it's in my blood?<br>
+                What if anger is the only inheritance he left me?<br>
+                What if love, to me, will always feel like a battlefield,<br>
+                where quiet feels like a warning and kindness feels like a lie?</p>
+
+                <p>I do not want to be him.<br>
+                I do not want to love like a clenched jaw,<br>
+                like a hand gripping too tight,<br>
+                like something that leaves bruises even when it swears it didn't mean to.</p>
+
+                <p>I want love to feel like open arms,<br>
+                like quiet that doesn't threaten to break,<br>
+                like warmth that doesn't burn.</p>
+
+                <p>But I don't know what to do with it.</p>
+
+                <p>A voice without anger sounds empty.<br>
+                A touch without force feels insincere.<br>
+                A love without chaos feels unreal.</p>
+
+                <p>I try to tell myself that love shouldn't hurt,<br>
+                but if it doesn't leave a scar, did it ever really touch me?</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="poem7" class="lightbox poem-lightbox">
+        <div class="lightbox-content poem-lightbox-content">
+            <a href="#poems" class="lightbox-close">✕</a>
+            <div class="poem-lightbox-header">
+                <span class="poem-icon">💍</span>
+                <h3 class="poem-title">Draft 7: Speak Now or Forever Hold Your Peace</h3>
+            </div>
+            <div class="poem-lightbox-body">
+                <p>Let me miss him now, in the rawness of midnight,<br>
+                when the air is thick with ghosts and my heart still aches sweetly.<br>
+                Let me miss him with reckless abandon,<br>
+                in the songs that gut me,<br>
+                in the spaces where his laughter used to echo.<br>
+                Let me tear myself apart for him now, if I must—<br>
+                but God, don't let me miss him in a wedding dress.</p>
+
+                <p>Not when the veil is drawn and my hands are<br>
+                wrapped around another's,<br>
+                when love should taste like forever but feels like a requiem.<br>
+                Not when I stand before another man who loves me right,<br>
+                who gives me everything except the fire i once burned for.</p>
+
+                <p>Don't let me look in the congregation of a thousand,<br>
+                searching for a face that should not be in there,<br>
+                don't let my gaze flicker, desperate and wanting.<br>
+                Don't let me wonder if he ever thought of me,<br>
+                if he ever ran, breathless, through the streets to stop me—<br>
+                only twenty-five minutes too late.</p>
+
+                <p>Don't let my vows tremble with regret.<br>
+                Don't let his name be the ghost beneath my breath.</p>
+
+                <p>Let me burn for him now, so I do not smoulder in silk and lace.<br>
+                Let me grieve him now, so I do not weep at the altar.<br>
+                Let me love him now</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="poem8" class="lightbox poem-lightbox">
+        <div class="lightbox-content poem-lightbox-content">
+            <a href="#poems" class="lightbox-close">✕</a>
+            <div class="poem-lightbox-header">
+                <span class="poem-icon">🥀</span>
+                <h3 class="poem-title">Draft 8: Stay, Even in Decay</h3>
+            </div>
+            <div class="poem-lightbox-body">
+                <p>You don't even know how to leave.<br>
+                You slipped out the door but forgot your breath on my window.<br>
+                Your voice still bruises the walls.<br>
+                Your absence lingers like secondhand smoke—<br>
+                caught in my throat,<br>
+                burning like a cigarette, just never enough to kill me.</p>
+
+                <p>You left yourself to me.<br>
+                In fingerprints on cold cups,<br>
+                in the bedsheets you folded wrong,<br>
+                in that one sock I keep finding in places it doesn't belong.<br>
+                Infact you didn't leave.<br>
+                You bled.<br>
+                All over my hands.<br>
+                All over my mouth.<br>
+                I still taste you in the prayers i say.</p>
+
+                <p>And maybe you never meant to stay,<br>
+                but your ghost made a home in the pit of my stomach,<br>
+                nestled between the ache.</p>
+
+                <p>And i think<br>
+                You'll make the prettiest flowers<br>
+                when your body rots into the earth.<br>
+                When i plant you with bare hands.<br>
+                Nails digging past bone and memory,<br>
+                watering you with the ache you left in my teeth—<br>
+                where I bit down words like<br>
+                please<br>
+                stay</p>
+
+                <p>Maybe you'll bloom into something beautiful.<br>
+                Maybe I'll clip your petals and press them in a book,<br>
+                But the words I wrote around you grew damp-<br>
+                mold creeping over the margins<br>
+                because the flowers never fully dried.<br>
+                You still weep between the pages.<br>
+                You rot slowly, lovingly,<br>
+                between everything I tried to preserve.</p>
+
+                <p>You're the rot and the bloom.<br>
+                You're the seed and my sickness.</p>
+
+                <p>Maybe I'll keep you there.<br>
+                Where even dead feel alive.<br>
+                In pages people dare not look.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="poem9" class="lightbox poem-lightbox">
+        <div class="lightbox-content poem-lightbox-content">
+            <a href="#poems" class="lightbox-close">✕</a>
+            <div class="poem-lightbox-header">
+                <span class="poem-icon">🕊️</span>
+                <h3 class="poem-title">Draft 9: A Eulogy for the Living</h3>
+            </div>
+            <div class="poem-lightbox-body">
+                <p>"You're growing up so fast,"<br>
+                they say, again—<br>
+                soft, like a passing breeze<br>
+                meant not to stay,<br>
+                but to stir something inside me.</p>
+
+                <p>I laugh<br>
+                because they do,<br>
+                because that's what we do<br>
+                when we don't know<br>
+                how to say goodbye<br>
+                in advance.</p>
+
+                <p>But tonight,<br>
+                it echoes longer.</p>
+
+                <p>"Do you mean it?" I ask.</p>
+
+                <p>They don't answer right away.<br>
+                Just glance at each other,<br>
+                a silent agreement folded<br>
+                into the wrinkles around their eyes.</p>
+
+                <p>"You were just this tall,"<br>
+                Dad gestures with his hand.<br>
+                "And now—"<br>
+                he doesn't finish.</p>
+
+                <p>Mom touches my hair like it's slipping away.<br>
+                "We're watching you bloom," she says,<br>
+                but her voice holds the tremble<br>
+                of petals falling.</p>
+
+                <p>"Are you scared?" I whisper.</p>
+
+                <p>"Not of leaving," she says.<br>
+                "Only of not being there<br>
+                when you need someone to stay."</p>
+
+                <p>Dad exhales,<br>
+                and I swear<br>
+                the whole room sinks with it.</p>
+
+                <p>"We won't be in all your stories,"<br>
+                he says,<br>
+                "but we'll be the beginning<br>
+                of every one."</p>
+
+                <p>I want to scream,<br>
+                I want time to stop,<br>
+                I want this joke to go back to being a joke.<br>
+                But I only nod,<br>
+                because I don't know how to hold<br>
+                something I know I will lose.</p>
+
+                <p>"You're growing up so fast,"<br>
+                they say again,<br>
+                and this time<br>
+                I hear it for what it is—</p>
+
+                <p>not pride,<br>
+                but preparation.<br>
+                Not a joke,<br>
+                but a farewell<br>
+                waiting its turn.</p>
+
+                <p>And I don't know how to stop<br>
+                the ache that sits in the room after that.<br>
+                So I reach for their hands—<br>
+                warm, worn,<br>
+                so painfully alive.</p>
+
+                <p>Something inside me starts writing<br>
+                a eulogy<br>
+                for a moment<br>
+                that hasn't ended yet.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="poem10" class="lightbox poem-lightbox">
+        <div class="lightbox-content poem-lightbox-content">
+            <a href="#poems" class="lightbox-close">✕</a>
+            <div class="poem-lightbox-header">
+                <span class="poem-icon">🥤</span>
+                <h3 class="poem-title">Draft 10: Soda Theory</h3>
+            </div>
+            <div class="poem-lightbox-body">
+                <p>"I thought you'd hate it if I drank your Soda,"<br>
+                you said.<br>
+                And I laughed,<br>
+                because I thought you hated me cause you didn't drink it.</p>
+
+                <p>And I,<br>
+                thinking your silence meant distance,<br>
+                let the fizz go flat in my throat<br>
+                before I ever learned<br>
+                you were only being gentle<br>
+                in the way I never asked for.</p>
+
+                <p>I held out the bottle,<br>
+                I watched you hesitate,<br>
+                the same boy who never stops talking, quiet now<br>
+                you looked at it<br>
+                like it meant something more—<br>
+                and maybe it did.<br>
+                Maybe it was a truce.<br>
+                Maybe it was a test.</p>
+
+                <p>And maybe we both failed.</p>
+
+                <p>You remembered I don't like sharing.<br>
+                I remembered every time I wished you'd forget.</p>
+
+                <p>I wonder how many more things we'll misunderstand<br>
+                in the name of love.<br>
+                How strange it is—<br>
+                that love sometimes sounds like<br>
+                "I didn't drink it because I thought of you,"<br>
+                and still feels like<br>
+                "I didn't drink it because I didn't want you."</p>
+
+                <p>We speak in hesitations,<br>
+                and hear in heartbreaks.</p>
+
+                <p>You didn't drink it anyway.<br>
+                And that was your way of saying you care.</p>
+
+                <p>But I only tasted the silence.</p>
+
+                <p>But maybe next time,<br>
+                when I pass you the bottle,<br>
+                you'll drink<br>
+                not to quench thirst—<br>
+                but to tell me you're still here.</p>
+
+                <p>And maybe next time,<br>
+                I'll understand what you meant all along.<br>
+                That you loved me all along.</p>
+
+                <p><em>(p.s. As i love you too)</em></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="poem11" class="lightbox poem-lightbox">
+        <div class="lightbox-content poem-lightbox-content">
+            <a href="#poems" class="lightbox-close">✕</a>
+            <div class="poem-lightbox-header">
+                <span class="poem-icon">🔄</span>
+                <h3 class="poem-title">Draft 11: A Conversation</h3>
+            </div>
+            <div class="poem-lightbox-body">
+                <p>It's March again.<br>
+                And I'm laughing at the same jokes, just in a different body.<br>
+                He says things we said two years ago,<br>
+                only this time, I'm the one holding the cigarette like a promise I won't keep.<br>
+                Counting the cracks in the pavement like regrets i'm starting to feel.</p>
+
+                <p>I told you—<br>
+                love always echoes before it fades.<br>
+                You just never listened to how loud your silence was.</p>
+
+                <p>He talks about how he wants to be a better father than the one he got.<br>
+                Same words, same tremble in the voice.<br>
+                Only now it's me nodding, saying things I don't believe in anymore.</p>
+
+                <p>He looks at me with eyes that plead for a future.<br>
+                Do you remember?<br>
+                That used to be me.<br>
+                I was so soft, I bled at every edge.</p>
+
+                <p>And now?<br>
+                Now you're the one holding the knife by the blade.<br>
+                Now you're me.<br>
+                And he's you.<br>
+                Is it easier to shatter someone when you already know how the pieces fall?</p>
+
+                <p>I don't mean to.<br>
+                God, I don't.<br>
+                But everything he says pulls a memory from my throat.<br>
+                And I think I'm wearing your skin.<br>
+                I look in the mirror and see myself stalling the way you did.<br>
+                I know how it ends.<br>
+                And I know he won't survive it like I did.</p>
+
+                <p>So you're me now.<br>
+                And he's the you I held onto until my fingers turned blue.<br>
+                Do you finally understand what I was trying to hold together?</p>
+
+                <p>You're haunted now.<br>
+                Welcome.<br>
+                Did you think ghosts were just stories or soft whispers in dreams?<br>
+                No—<br>
+                they wear your face when you're about to break someone the way we broke each other.</p>
+
+                <p>And it's terrifying.<br>
+                Because I like him..<br>
+                He holds my hand like I held yours—<br>
+                hopeful.<br>
+                He smiles like I used to—<br>
+                History doesn't repeat—it performs.<br>
+                And I'm the actor reading lines from a script I pretended not to write.</p>
+
+                <p>If you knew how it ends, why open the curtain again?</p>
+
+                <p>Because hope is the cruelest kind of nostalgia.<br>
+                Because maybe if I play your part right,<br>
+                he won't have to become me.</p>
+
+                <p>So you stay?</p>
+
+                <p>I think I just wanted to be forgiven without being punished.<br>
+                But time—<br>
+                time remembers.<br>
+                And this time, I'm the lesson.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="poem12" class="lightbox poem-lightbox">
+        <div class="lightbox-content poem-lightbox-content">
+            <a href="#poems" class="lightbox-close">✕</a>
+            <div class="poem-lightbox-header">
+                <span class="poem-icon">🧺</span>
+                <h3 class="poem-title">Draft 12: Self Sabotage</h3>
+            </div>
+            <div class="poem-lightbox-body">
+                <p>all the whites came out clean except one—<br>
+                my favourite one.<br>
+                white, black rims,<br>
+                a bow stitched dead-center like a target.</p>
+
+                <p>no red cloth. no mistake.<br>
+                just itself,<br>
+                bleeding into itself.</p>
+
+                <p>the black rims turned the water pink—<br>
+                a quiet kind of violence.<br>
+                self-made.<br>
+                unprovoked.</p>
+
+                <p>I stood there, holding it,<br>
+                the way you hold news you can't return.</p>
+
+                <p>and i tried to fix it.<br>
+                i scrubbed, rinsed,<br>
+                begged the fibers to forget.</p>
+
+                <p>this time,<br>
+                the stains let go.</p>
+
+                <p>but next time—<br>
+                what then?</p>
+
+                <p>should i wash it alone,<br>
+                cold water, inside out,<br>
+                like loving something you know might hurt itself again?</p>
+
+                <p>should i guard it from its own edges?<br>
+                as if care could outwit what's stitched into the seams?</p>
+
+                <p>it still fits.<br>
+                but i wear it less.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="poem13" class="lightbox poem-lightbox">
+        <div class="lightbox-content poem-lightbox-content">
+            <a href="#poems" class="lightbox-close">✕</a>
+            <div class="poem-lightbox-header">
+                <span class="poem-icon">💔</span>
+                <h3 class="poem-title">Draft 13: Me Before You</h3>
+            </div>
+            <div class="poem-lightbox-body">
+                <p>you forgave me for things i would've set fire to you for.<br>
+                that's not grace, that's desperation in a nice suit.</p>
+
+                <p>i trace the outlines of old sins and paint them on your chest<br>
+                just to see if you'll flinch—<br>
+                spoiler: you never do.</p>
+
+                <p>you keep saying i'm the best thing that's ever happened to you, while i stay up at night wondering if i'm even real in your hands<br>
+                or just some ghost wearing kindness like a mask.</p>
+
+                <p>you think i'm gentle—<br>
+                but i've been rehearsing your heartbreak since day one.<br>
+                picking at the thread, watching how far it unravels before you call it love again.</p>
+
+                <p>i want to want you the way you want me—<br>
+                but some nights, i still whisper someone else's name in the back of my head and hate myself less than i should for it.</p>
+
+                <p>i'm not whole in your arms.<br>
+                i just hold still long enough for you to believe i am and i let you.<br>
+                because you think my silence means safety<br>
+                when really, it's where i bury all the truths that would shatter you.</p>
+
+                <p>the sick part is—<br>
+                you make me feel safe too.<br>
+                safe enough to test just how far i can twist the knife before you bleed.</p>
+
+                <p>you think you're hard to love,<br>
+                but god—<br>
+                you made it so easy for me to take advantage of your grace.<br>
+                you gave it freely and i pocketed it like stolen sugar from someone else's table.</p>
+
+                <p>and when you asked, half-breaking,<br>
+                "will i always have you?"</p>
+
+                <p>i said yes.<br>
+                hesitantly. carefully.<br>
+                the same way i said it to someone else once—<br>
+                the same someone i still think about when you fall asleep, holding my hand like a lifeline that i never deserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="poem14" class="lightbox poem-lightbox">
+        <div class="lightbox-content poem-lightbox-content">
+            <a href="#poems" class="lightbox-close">✕</a>
+            <div class="poem-lightbox-header">
+                <span class="poem-icon">⛓️</span>
+                <h3 class="poem-title">Draft 15: Survivor's Guilt</h3>
+            </div>
+            <div class="poem-lightbox-body">
+                <p>I bite down on joy until my lips bleed,<br>
+                spit it out before you see me smiling.</p>
+
+                <p>Your grief is a house on fire,<br>
+                and I sit outside with clean clothes,<br>
+                guilty for not burning.</p>
+
+                <p>And I hate it.<br>
+                I hate the way my ease makes a mockery of your ache,<br>
+                the way my peace sounds louder when your silence is raw.</p>
+
+                <p>My comfort feels obscene beside you.<br>
+                Every smile is a crime scene,<br>
+                every breath a betrayal.</p>
+
+                <p>But secretly—<br>
+                I wonder if my love is useless,<br>
+                if my sacrifice is empty,<br>
+                if I am just another ghost haunting your suffering<br>
+                instead of leading you out.</p>
+
+                <p>Call it love—<br>
+                but it feels like suicide in installments,<br>
+                dying a little each day<br>
+                just to prove I will not abandon you.</p>
+            </div>
+        </div>
+    </div>
+
     <!-- footer -->
     <footer class="footer">
         <div class="footer-content">
@@ -841,7 +1576,18 @@
             <div class="footer-decoration">
                 <span>★</span><span>✿</span><span>♡</span><span>✿</span><span>★</span>
             </div>
+            <button id="logoutBtn" class="logout-button" title="Logout">
+                🚪 Logout
+            </button>
         </div>
     </footer>
+
+    <script>
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            sessionStorage.removeItem('isLoggedIn');
+            window.location.href = 'login.html';
+        });
+    </script>
 </body>
 </html>

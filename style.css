@@ -1917,6 +1917,30 @@ body::after {
     margin-top: 10px;
 }
 
+.logout-button {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #FF1493, var(--pastel-pink));
+    color: var(--white);
+    border: 3px solid var(--white);
+    border-radius: 15px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(255, 20, 147, 0.3);
+    transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 20, 147, 0.4);
+}
+
+.logout-button:active {
+    transform: translateY(-1px);
+}
+
 /* responsive stuff for different screen sizes */
 @media (max-width: 1200px) {
     .main-container {

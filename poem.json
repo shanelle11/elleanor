@@ -1,0 +1,106 @@
+﻿{
+  "collection": "Shanelle's Poetry Collection",
+  "author": "Shanelle",
+  "totalPoems": 14,
+  "lastUpdated": "2025-11-05",
+  "poems": [
+    {
+      "id": "poem1",
+      "draftNumber": 1,
+      "title": "Love and Grief",
+      "category": "Love & Loss",
+      "icon": ""
+    },
+    {
+      "id": "poem2",
+      "draftNumber": 2,
+      "title": "To Gracey",
+      "category": "Love & Loss",
+      "icon": ""
+    },
+    {
+      "id": "poem3",
+      "draftNumber": 3,
+      "title": "Last Letter to your Lover",
+      "category": "Love",
+      "icon": ""
+    },
+    {
+      "id": "poem4",
+      "draftNumber": 4,
+      "title": "Music Box",
+      "category": "Dreams",
+      "icon": ""
+    },
+    {
+      "id": "poem5",
+      "draftNumber": 5,
+      "title": "The Almosts",
+      "category": "Nostalgia",
+      "icon": ""
+    },
+    {
+      "id": "poem6",
+      "draftNumber": 6,
+      "title": "Violence Unstitched",
+      "category": "Reflection",
+      "icon": ""
+    },
+    {
+      "id": "poem7",
+      "draftNumber": 7,
+      "title": "Speak Now or Forever Hold Your Peace",
+      "category": "Love & Loss",
+      "icon": ""
+    },
+    {
+      "id": "poem8",
+      "draftNumber": 8,
+      "title": "Stay, Even in Decay",
+      "category": "Love & Loss",
+      "icon": ""
+    },
+    {
+      "id": "poem9",
+      "draftNumber": 9,
+      "title": "A Eulogy for the Living",
+      "category": "Nostalgia",
+      "icon": ""
+    },
+    {
+      "id": "poem10",
+      "draftNumber": 10,
+      "title": "Soda Theory",
+      "category": "Love",
+      "icon": ""
+    },
+    {
+      "id": "poem11",
+      "draftNumber": 11,
+      "title": "A Conversation",
+      "category": "Reflection",
+      "icon": ""
+    },
+    {
+      "id": "poem12",
+      "draftNumber": 12,
+      "title": "Self Sabotage",
+      "category": "Reflection",
+      "icon": ""
+    },
+    {
+      "id": "poem13",
+      "draftNumber": 13,
+      "title": "Me Before You",
+      "category": "Love",
+      "icon": ""
+    },
+    {
+      "id": "poem15",
+      "draftNumber": 15,
+      "title": "Survivor's Guilt",
+      "category": "Reflection",
+      "icon": ""
+    }
+  ]
+}

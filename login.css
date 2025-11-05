@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Varela Round', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, 
+        #ffc0e9 0%, 
+        #b4a7ff 25%, 
+        #a8e6ff 50%, 
+        #ffd4e5 75%, 
+        #c4b5fd 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    overflow: hidden;
+    position: relative;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Floating decorations */
+.floating-decoration {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    opacity: 0.6;
+    pointer-events: none;
+    animation: float 6s ease-in-out infinite, twinkle 3s ease-in-out infinite;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 0.9; }
+}
+
+/* Login container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 10;
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 50px 40px;
+    border-radius: 30px;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.login-title {
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #ff6ec7, #b993ff, #6ec7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.login-subtitle {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+/* Form styles */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.form-group label {
+    color: #555;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-family: 'Varela Round', sans-serif;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #b993ff;
+    box-shadow: 0 0 0 3px rgba(185, 147, 255, 0.2);
+    background: white;
+}
+
+.form-group input::placeholder {
+    color: #aaa;
+}
+
+/* Error message */
+.error-message {
+    background: #ffe0e0;
+    color: #d63031;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    border: 2px solid #ffb3b3;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Login button */
+.login-button {
+    background: linear-gradient(135deg, #ff6ec7, #b993ff, #6ec7ff);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: 'Varela Round', sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(185, 147, 255, 0.4);
+    margin-top: 10px;
+}
+
+.login-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(185, 147, 255, 0.6);
+}
+
+.login-button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(185, 147, 255, 0.4);
+}
+
+/* Shake animation for wrong password */
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+    20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .login-box {
+        padding: 40px 30px;
+        border-radius: 20px;
+    }
+    
+    .login-title {
+        font-size: 2rem;
+    }
+    
+    .floating-decoration {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-box {
+        padding: 30px 20px;
+    }
+    
+    .login-title {
+        font-size: 1.8rem;
+    }
+    
+    .form-group input {
+        padding: 12px 15px;
+    }
+    
+    .login-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
