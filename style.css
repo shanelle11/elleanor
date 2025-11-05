@@ -54,6 +54,30 @@ body {
     position: relative;
 }
 
+/* accessible skip link for keyboard users */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip-link:focus {
+    left: 16px;
+    top: 16px;
+    width: auto;
+    height: auto;
+    padding: 10px 14px;
+    background: #ffffff;
+    color: #000;
+    border: 3px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 4px 4px 0px var(--pastel-pink);
+    z-index: 10000;
+}
+
 /* bubble floating animation */
 @keyframes floatBubble {
     0%, 100% { transform: translate(0, 0) scale(1); }
