@@ -1351,6 +1351,7 @@ body::after {
     opacity: 0.5;
     animation: pulseHeart 2s ease-in-out infinite;
     z-index: 1;
+    pointer-events: none;
 }
 
 .poem-card:hover {
@@ -1358,17 +1359,47 @@ body::after {
     box-shadow: 12px 12px 0px var(--pastel-pink), 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
-.poem-toggle {
-    display: none;
+.poem-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+}
+
+.poem-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 20, 147, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 16px;
+}
+
+.poem-card:hover .poem-overlay {
+    opacity: 1;
+}
+
+.poem-overlay .overlay-text {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--white);
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: bounce 1s ease-in-out infinite;
 }
 
 .poem-header {
     display: grid;
-    grid-template-columns: auto 1fr auto auto;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
     gap: 12px;
     padding: 20px;
-    cursor: pointer;
     background: linear-gradient(135deg, var(--soft-pink), var(--warm-peach));
     border-bottom: 3px solid var(--border-color);
     transition: all 0.3s ease;
@@ -1442,25 +1473,6 @@ body::after {
     border-color: #FF1493;
 }
 
-.expand-icon {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #FF1493;
-    transition: transform 0.3s ease;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--white);
-    border-radius: 50%;
-    border: 3px solid var(--border-color);
-}
-
-.poem-toggle:checked + .poem-header .expand-icon {
-    transform: rotate(45deg);
-}
-
 .poem-preview {
     padding: 15px 20px;
     font-style: italic;
@@ -1472,44 +1484,6 @@ body::after {
 .poem-preview p {
     margin: 0;
     font-size: 1rem;
-}
-
-.poem-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.poem-toggle:checked ~ .poem-content {
-    max-height: 2000px;
-}
-
-.poem-toggle:checked ~ .poem-preview {
-    display: none;
-}
-
-.poem-text {
-    padding: 25px;
-    background: var(--white);
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: #333;
-}
-
-.poem-text p {
-    margin-bottom: 20px;
-    text-align: left;
-    position: relative;
-    padding-left: 15px;
-}
-
-.poem-text p::before {
-    content: '✿';
-    position: absolute;
-    left: 0;
-    color: var(--pastel-pink);
-    font-size: 0.8rem;
-    opacity: 0.6;
 }
 
 .poems-footer {
@@ -1819,6 +1793,83 @@ body::after {
     margin-top: 20px;
     font-weight: bold;
     text-shadow: 2px 2px 0px rgba(255, 182, 193, 0.5);
+}
+
+/* poem lightbox specific styles */
+.poem-lightbox-content {
+    max-width: 900px;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.poem-lightbox-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 25px;
+    background: linear-gradient(135deg, var(--soft-pink), var(--warm-peach));
+    border-bottom: 4px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.poem-lightbox-header .poem-icon {
+    font-size: 2.5rem;
+}
+
+.poem-lightbox-header .poem-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: #FF1493;
+    margin: 0;
+    text-shadow: 2px 2px 0px rgba(255, 182, 193, 0.5);
+}
+
+.poem-lightbox-body {
+    padding: 35px;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #333;
+}
+
+.poem-lightbox-body p {
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.poem-lightbox-body p::before {
+    content: '✿';
+    position: absolute;
+    left: 0;
+    color: var(--pastel-pink);
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+.poem-lightbox-body em {
+    color: var(--pastel-pink);
+    font-style: italic;
+}
+
+/* scrollbar for poem lightbox */
+.poem-lightbox-content::-webkit-scrollbar {
+    width: 12px;
+}
+
+.poem-lightbox-content::-webkit-scrollbar-track {
+    background: var(--light-pink);
+}
+
+.poem-lightbox-content::-webkit-scrollbar-thumb {
+    background: var(--pastel-pink);
+    border-radius: 10px;
+    border: 2px solid var(--white);
+}
+
+.poem-lightbox-content::-webkit-scrollbar-thumb:hover {
+    background: #FF1493;
 }
 
 .gallery-footer {
