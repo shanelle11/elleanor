@@ -64,35 +64,6 @@ body {
 }
 
 /* ========================================
-   accessibility features
-======================================== */
-
-/* skip link for keyboard users - hidden until focused */
-.skip-link {
-    position: absolute;
-    left: -9999px; /* moves it off screen */
-    top: auto;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-}
-
-/* shows skip link when user tabs to it */
-.skip-link:focus {
-    left: 16px;
-    top: 16px;
-    width: auto;
-    height: auto;
-    padding: 10px 14px;
-    background: #ffffff;
-    color: #000;
-    border: 3px solid var(--border-color);
-    border-radius: 8px;
-    box-shadow: 4px 4px 0px var(--pastel-pink);
-    z-index: 10000; /* makes sure it appears on top */
-}
-
-/* ========================================
    animations
 ======================================== */
 
@@ -2404,23 +2375,6 @@ body::after {
     .main-container {
         grid-template-columns: 1fr;
     }
-}
-
-/* for people who dont like animations */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
-a:focus,
-button:focus {
-    outline: 3px solid #FF1493;
-    outline-offset: 3px;
 }
 
 /* custom scrollbar */
