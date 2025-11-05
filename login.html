@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Shanelle's Portfolio</title>
+    
+    <!-- linking css and fonts -->
     <link rel="stylesheet" href="login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Varela+Round&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Floating decorations -->
+    <!-- floating pokemon decorations in the background -->
     <img src="image-01.png" alt="" class="floating-decoration" style="top: 10%; left: 5%; animation-delay: 0s;">
     <img src="image-02.png" alt="" class="floating-decoration" style="top: 20%; right: 10%; animation-delay: 1s;">
     <img src="image-03.png" alt="" class="floating-decoration" style="bottom: 15%; left: 8%; animation-delay: 2s;">
@@ -18,11 +20,13 @@
     <img src="image-05.png" alt="" class="floating-decoration" style="bottom: 25%; right: 15%; animation-delay: 0.5s;">
     <img src="image-06.png" alt="" class="floating-decoration" style="top: 40%; left: 10%; animation-delay: 2.5s;">
 
+    <!-- main login container -->
     <div class="login-container">
         <div class="login-box">
             <h1 class="login-title">✨ Welcome ✨</h1>
             <p class="login-subtitle">Enter to view Shanelle's Portfolio</p>
             
+            <!-- login form with username and password -->
             <form id="loginForm" class="login-form">
                 <div class="form-group">
                     <label for="username">Username</label>
@@ -34,6 +38,7 @@
                     <input type="password" id="password" name="password" placeholder="Enter password" required>
                 </div>
                 
+                <!-- error message shown if login fails -->
                 <div class="error-message" id="errorMessage" style="display: none;">
                     ❌ Invalid username or password
                 </div>
@@ -43,40 +48,42 @@
         </div>
     </div>
 
-    <!-- User credentials database -->
+    <!-- importing user database from credentials.js -->
     <script src="credentials.js"></script>
     
     <script>
+        // form submission handler
         document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+            e.preventDefault(); // stops page from reloading
             
+            // getting values from the form inputs
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             const errorMessage = document.getElementById('errorMessage');
             const loginBox = document.querySelector('.login-box');
             
-            // Validate credentials using the database
+            // checking if username and password match using credentials.js
             const result = validateCredentials(username, password);
             
             if (result.success) {
-                // Set session storage
+                // if login successful, save to session storage
                 sessionStorage.setItem('isLoggedIn', 'true');
                 sessionStorage.setItem('username', result.username);
                 
-                // Redirect to main page
+                // redirect to main portfolio page
                 window.location.href = 'index.html';
             } else {
-                // Show error message
+                // if login failed, show error message and shake animation
                 errorMessage.textContent = '❌ ' + result.message;
                 errorMessage.style.display = 'block';
-                loginBox.classList.add('shake');
+                loginBox.classList.add('shake'); // adds shake animation
                 
-                // Remove shake animation after it completes
+                // removes shake animation after it plays
                 setTimeout(() => {
                     loginBox.classList.remove('shake');
                 }, 500);
                 
-                // Hide error message after 3 seconds
+                // hides error message after 3 seconds
                 setTimeout(() => {
                     errorMessage.style.display = 'none';
                 }, 3000);

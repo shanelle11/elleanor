@@ -1,12 +1,17 @@
-/* basic reset stuff */
+/* ========================================
+   basic setup and resets
+======================================== */
+
+/* removing default browser spacing */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* makes sizing easier to work with */
 }
 
-/* color variables so i dont have to keep typing hex codes */
+/* css variables for colors and fonts - easier to change everything at once */
 :root {
+    /* pastel color palette for y2k aesthetic */
     --pastel-pink: #FFB6D9;
     --soft-pink: #FFC9E5;
     --warm-peach: #FFD4E5;
@@ -14,20 +19,24 @@
     --white: #FFFFFF;
     --light-pink: #FFF0F7;
     --border-color: #FF9EC8;
+    
+    /* font families */
     --font-hero: 'Luckiest Guy', cursive;
     --font-heading: 'Baloo 2', cursive;
     --font-body: 'Varela Round', sans-serif;
 }
 
-/* smooth scrolling */
+/* smooth scrolling when clicking navigation links */
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow-x: hidden; /* prevents horizontal scrolling */
 }
 
-/* main body with grid background */
+/* main body styling with grid background pattern */
 body {
     font-family: var(--font-body);
+    
+    /* creating a grid pattern background for y2k vibes */
     --grid-color: rgba(255, 255, 255, 0.4);
     --grid-size: 50px;
     background-color: #FFB6D9;
@@ -47,23 +56,28 @@ body {
             var(--grid-color) var(--grid-size)
         );
     background-size: var(--grid-size) var(--grid-size);
-    background-attachment: fixed;
+    background-attachment: fixed; /* keeps grid in place when scrolling */
     color: #333;
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
 }
 
-/* accessible skip link for keyboard users */
+/* ========================================
+   accessibility features
+======================================== */
+
+/* skip link for keyboard users - hidden until focused */
 .skip-link {
     position: absolute;
-    left: -9999px;
+    left: -9999px; /* moves it off screen */
     top: auto;
     width: 1px;
     height: 1px;
     overflow: hidden;
 }
 
+/* shows skip link when user tabs to it */
 .skip-link:focus {
     left: 16px;
     top: 16px;
@@ -75,10 +89,14 @@ body {
     border: 3px solid var(--border-color);
     border-radius: 8px;
     box-shadow: 4px 4px 0px var(--pastel-pink);
-    z-index: 10000;
+    z-index: 10000; /* makes sure it appears on top */
 }
 
-/* bubble floating animation */
+/* ========================================
+   animations
+======================================== */
+
+/* floating animation for decorative bubbles */
 @keyframes floatBubble {
     0%, 100% { transform: translate(0, 0) scale(1); }
     25% { transform: translate(20px, -30px) scale(1.2); }
@@ -86,7 +104,7 @@ body {
     75% { transform: translate(30px, -20px) scale(1.1); }
 }
 
-/* background bubbles */
+/* decorative background bubbles using pseudo-elements */
 body::before,
 body::after {
     content: '';
@@ -95,7 +113,7 @@ body::after {
     height: 100px;
     border-radius: 50%;
     opacity: 0.1;
-    pointer-events: none;
+    pointer-events: none; /* makes them unclickable */
     z-index: 1;
     animation: floatBubble 8s ease-in-out infinite;
 }
@@ -111,16 +129,19 @@ body::after {
     top: 60%;
     right: 15%;
     animation-duration: 10s;
-    animation-direction: reverse;
+    animation-direction: reverse; /* makes it float opposite direction */
 }
 
-/* hero section stuff */
+/* ========================================
+   hero section (top of page with name & photo)
+======================================== */
+
 .sticky-hero-container {
     width: 100%;
 }
 
 .hero-section {
-    height: 100vh;
+    height: 100vh; /* full viewport height */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -130,12 +151,13 @@ body::after {
     overflow: hidden;
 }
 
-/* star twinkling */
+/* twinkling star animation for decorative stars */
 @keyframes twinkleStar {
     0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
     50% { opacity: 0.8; transform: scale(1.3) rotate(180deg); }
 }
 
+/* decorative stars in hero section using pseudo-elements */
 .hero-section::before,
 .hero-section::after {
     position: absolute;
@@ -148,7 +170,7 @@ body::after {
     content: '⭐';
     top: 15%;
     left: 20%;
-    animation-delay: 0.5s;
+    animation-delay: 0.5s; /* starts animation slightly later */
 }
 
 .hero-section::after {
@@ -272,44 +294,45 @@ body::after {
     animation: heartBeat 1.5s ease-in-out infinite;
 }
 
+/* stagger the heart animations so they don't all pulse at once */
 .heart:nth-child(2) { animation-delay: 0.3s; }
 .heart:nth-child(3) { animation-delay: 0.6s; }
 
-/* scroll indicator */
+/* scroll down indicator at bottom of hero section */
 .scroll-indicator {
     position: absolute;
     bottom: 30px;
     font-size: 1.2rem;
     color: #FF1493;
     font-weight: bold;
-    animation: bounce 2s ease-in-out infinite;
+    animation: bounce 2s ease-in-out infinite; /* bounces up and down */
     text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.7);
     transition: opacity 0.3s ease;
 }
 
 /* ========================================
-   Main Container Layout
+   main container layout (grid system)
 ======================================== */
-/* this is the main grid layout that holds the side panels and content */
+
+/* three column layout: left sidebar | main content | right sidebar */
 .main-container {
-    max-width: 1600px; /* doesnt get too wide on big screens */
-    margin: 0 auto; /* centers it */
-    padding: 40px 20px; /* space around edges */
-    display: grid; /* css grid is so powerful */
-    grid-template-columns: 250px 1fr 250px; /* left sidebar, main content, right sidebar */
-    gap: 30px; /* space between columns */
-    position: relative; /* for the floating decorations */
-    z-index: 50; /* layering */
+    max-width: 1600px; /* prevents it from getting too wide on big screens */
+    margin: 0 auto; /* centers the whole container */
+    padding: 40px 20px;
+    display: grid; /* using css grid for layout */
+    grid-template-columns: 250px 1fr 250px; /* fixed sidebar widths, flexible content in middle */
+    gap: 30px; /* space between the columns */
+    position: relative;
+    z-index: 50;
 }
 
 /* ========================================
-   Side Panels
+   side panels (left and right sidebars)
 ======================================== */
-/* animations for the side panel boxes */
 
-/* gentle floating animation */
+/* gentle floating animation for sidebar boxes */
 @keyframes panelFloat {
-    0%, 100% { transform: translateY(0); } /* normal position */
+    0%, 100% { transform: translateY(0); } /* starts and ends at normal position */
     50% { transform: translateY(-8px); } /* floats up a bit */
 }
 
@@ -1324,23 +1347,29 @@ body::after {
     }
 }
 
+/* ========================================
+   poem cards grid layout
+======================================== */
+
+/* responsive grid that adapts to screen size */
 .poems-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* automatically fits cards */
+    gap: 25px; /* space between cards */
     margin: 30px 0;
 }
 
+/* individual poem card styling */
 .poem-card {
     background: rgba(255, 255, 255, 0.95);
     border: 4px solid var(--border-color);
     border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 8px 8px 0px var(--pastel-pink), 0 10px 25px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    overflow: hidden; /* keeps content inside rounded corners */
+    box-shadow: 8px 8px 0px var(--pastel-pink), 0 10px 25px rgba(0, 0, 0, 0.1); /* layered shadow effect */
+    transition: all 0.3s ease; /* smooth hover animation */
     position: relative;
 }
-
+/* decorative heart that floats above each poem card */
 .poem-card::before {
     content: '♡';
     position: absolute;
@@ -1351,53 +1380,60 @@ body::after {
     opacity: 0.5;
     animation: pulseHeart 2s ease-in-out infinite;
     z-index: 1;
-    pointer-events: none;
+    pointer-events: none; /* doesn't interfere with clicking */
 }
 
+/* hover effect - lifts card and makes shadow bigger */
 .poem-card:hover {
-    transform: translateY(-5px) rotate(1deg);
+    transform: translateY(-5px) rotate(1deg); /* moves up and tilts slightly */
     box-shadow: 12px 12px 0px var(--pastel-pink), 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
+/* link wrapper for entire card */
 .poem-card-link {
     display: block;
     text-decoration: none;
     color: inherit;
-    position: relative;
+    position: relative; /* needed for absolute positioning of overlay */
 }
 
+/* gradient overlay that appears on hover with "read" text */
 .poem-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    /* gradient from pink to purple for cool effect */
     background: linear-gradient(135deg, rgba(255, 105, 180, 0.85), rgba(147, 112, 219, 0.85));
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    opacity: 0; /* hidden by default */
+    transition: opacity 0.3s ease; /* smooth fade in/out */
     border-radius: 16px;
-    z-index: 10;
+    z-index: 10; /* appears above card content */
 }
 
+/* shows overlay when hovering over card */
 .poem-card:hover .poem-overlay {
     opacity: 1;
 }
 
+/* "read" text styling inside overlay */
 .poem-overlay .overlay-text {
     font-family: var(--font-heading);
     font-size: 1.8rem;
     color: var(--white);
     font-weight: bold;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-    animation: bounce 1s ease-in-out infinite;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); /* shadow makes text easier to read */
+    animation: bounce 1s ease-in-out infinite; /* bouncing animation */
 }
 
+/* poem card header with icon, title, and category badge */
 .poem-header {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto 1fr auto; /* icon, title, badge */
     align-items: center;
     gap: 12px;
     padding: 20px;
@@ -1425,9 +1461,10 @@ body::after {
     text-shadow: 2px 2px 0px rgba(255, 182, 193, 0.5);
 }
 
+/* category badge styling - appears on each poem card */
 .poem-category {
     padding: 5px 12px;
-    border-radius: 15px;
+    border-radius: 15px; /* pill shape */
     font-size: 0.85rem;
     font-weight: bold;
     border: 2px solid;
@@ -1436,13 +1473,16 @@ body::after {
     font-family: var(--font-body);
 }
 
+/* different gradient colors for each category */
+
+/* love category - pink gradient */
 .poem-category.love {
     background: linear-gradient(135deg, #FFB6D9, #FF69B4);
     color: var(--white);
     border-color: #FF1493;
 }
 
-/* Love & Loss category styling */
+/* love & loss category - purple gradient */
 .poem-category.love.loss,
 [class*="love"][class*="loss"] {
     background: linear-gradient(135deg, #D8BFD8, #B0A4C3);
@@ -1450,30 +1490,35 @@ body::after {
     border-color: #9370DB;
 }
 
+/* nostalgia category - light purple gradient */
 .poem-category.nostalgia {
     background: linear-gradient(135deg, var(--gentle-purple), #9B7EDE);
     color: var(--white);
     border-color: #7B68EE;
 }
 
+/* joy category - gold/orange gradient */
 .poem-category.joy {
     background: linear-gradient(135deg, #FFD700, #FFA500);
     color: var(--white);
     border-color: #FF8C00;
 }
 
+/* dreams category - sky blue gradient */
 .poem-category.dreams {
     background: linear-gradient(135deg, #87CEEB, #4682B4);
     color: var(--white);
     border-color: #1E90FF;
 }
 
+/* whimsy/reflection category - multi-color pink gradient */
 .poem-category.whimsy {
     background: linear-gradient(135deg, #FF69B4, #FFB6D9, #DDA0DD);
     color: var(--white);
     border-color: #FF1493;
 }
 
+/* poem preview text section */
 .poem-preview {
     padding: 15px 20px;
     font-style: italic;
@@ -1710,23 +1755,29 @@ body::after {
     margin-top: 12px;
 }
 
-/* lightbox popup for images */
+/* ========================================
+   lightbox popup system (for poems & art)
+======================================== */
+
+/* lightbox overlay - covers whole screen with dark background */
 .lightbox {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    z-index: 9999;
+    background: rgba(0, 0, 0, 0.95); /* almost black overlay */
+    z-index: 9999; /* appears above everything */
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0;
+    opacity: 0; /* hidden by default */
     visibility: hidden;
     transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
+/* using :target to show lightbox when url has #poem1, #art1 etc */
+/* this is css-only, no javascript needed! */
 .lightbox:target {
     opacity: 1;
     visibility: visible;

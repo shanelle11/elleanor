@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- basic stuff every website needs -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- seo meta tags so people can find my site on google -->
     <meta name="description" content="Shanelle Dsouza – artist and poet. Explore a cute Y2K-inspired portfolio with illustrations, poems, and a pastel art gallery.">
+    
+    <!-- these make the link look pretty when shared on social media -->
     <meta property="og:title" content="Shanelle's Portfolio">
     <meta property="og:description" content="Shanelle Dsouza – artist and poet. Explore a cute Y2K-inspired portfolio with illustrations, poems, and a pastel art gallery.">
     <meta property="og:type" content="website">
@@ -12,30 +17,46 @@
     <meta name="twitter:title" content="Shanelle's Portfolio">
     <meta name="twitter:description" content="Shanelle Dsouza – artist and poet. Explore a cute Y2K-inspired portfolio with illustrations, poems, and a pastel art gallery.">
     <meta name="twitter:image" content="1.jpg">
+    
     <title>✨ Shanelle's Portfolio ✨</title>
+    
+    <!-- linking my css file for all the styling -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- google fonts for the cute text styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Varela+Round&family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+    
     <script>
-        // Check if user is logged in
+        // making sure people log in first before seeing my portfolio
+        // if they're not logged in, send them back to the login page
         if (sessionStorage.getItem('isLoggedIn') !== 'true') {
             window.location.href = 'login.html';
         }
     </script>
 </head>
 <body>
+    <!-- accessibility thing for keyboard users to skip to main content -->
     <a class="skip-link" href="#about">Skip to content</a>
-    <!-- hero section with my name and pic -->
+    
+    <!-- hero section - the first thing you see with my name and photo -->
     <div class="sticky-hero-container">
         <section id="hero" class="hero-section">
             <div class="hero-content">
+                <!-- sparkle decorations for aesthetic -->
                 <div class="sparkles" aria-hidden="true">✨</div>
+                
+                <!-- my name as the main heading -->
                 <h1 class="hero-title">Shanelle Dsouza</h1>
+                
+                <!-- wrapper for my profile pic with a decorative border -->
                 <div class="hero-image-wrapper">
                     <img src="1.jpg" alt="Portrait of Shanelle Dsouza" class="hero-image">
                     <div class="image-border"></div>
                 </div>
+                
+                <!-- more sparkles and cute hearts for decoration -->
                 <div class="sparkles" aria-hidden="true">✨</div>
                 <div class="decorative-hearts">
                     <span class="heart">💖</span>
@@ -43,24 +64,32 @@
                     <span class="heart">🌟</span>
                 </div>
             </div>
+            
+            <!-- scroll indicator so people know to scroll down -->
             <div class="scroll-indicator">
                 <span aria-hidden="true">⬇</span> Scroll down <span aria-hidden="true">⬇</span>
             </div>
         </section>
     </div>
 
-    <!-- main container with sidebar and content -->
+    <!-- main container - has the sidebar and all the content -->
     <div class="main-container">
-        <!-- left sidebar for navigation -->
+        
+        <!-- left sidebar with navigation links and badges -->
         <aside class="side-panel left-panel">
             <div class="panel-box">
                 <h3 class="panel-title">✿ Navigation ✿</h3>
+                
+                <!-- navigation buttons to jump to different sections -->
                 <div class="panel-content">
                     <a href="#about" class="retro-button">About Me</a>
                     <a href="#poems" class="retro-button">My Poems 📝</a>
                     <a href="#gallery" class="retro-button">Art Gallery</a>
                 </div>
+                
                 <div class="dotted-line"></div>
+                
+                <!-- cute pixel badges describing me -->
                 <div class="badge-collection">
                     <div class="pixel-badge">♡ Artist</div>
                     <div class="pixel-badge">★ Creative</div>
@@ -69,7 +98,7 @@
                 </div>
             </div>
             
-            <!-- cute mascot face -->
+            <!-- cute mascot face for decoration -->
             <div class="panel-box mascot-box">
                 <div class="mascot">
                     <div class="mascot-face">
@@ -82,8 +111,9 @@
             </div>
         </aside>
 
-        <!-- main content area -->
+        <!-- main content area where all my info goes -->
         <main class="content-area">
+            
             <!-- about me section -->
             <section id="about" class="content-section about-section">
                 <div class="section-header">
@@ -97,6 +127,7 @@
                     </div>
                 </div>
                 
+                <!-- my bio and description -->
                 <div class="about-content">
                     <div class="about-text-box">
                         <div class="text-bubble">
@@ -109,7 +140,7 @@
                                 <span>★</span><span>♡</span><span>✿</span><span>♡</span><span>★</span>
                             </div>
 
-                            <!-- instagram button -->
+                            <!-- link to my instagram -->
                             <div class="instagram-button-wrapper">
                                 <a href="https://www.instagram.com/elleanor_grace" target="_blank" rel="noopener noreferrer" class="instagram-button">
                                     <span class="insta-icon">📷</span>
@@ -122,7 +153,7 @@
                 </div>
             </section>
 
-            <!-- poems section -->
+            <!-- poems section - this is where all my poems are displayed -->
             <section id="poems" class="content-section poems-section">
                 <div class="section-header">
                     <h2 class="section-title">
@@ -135,11 +166,12 @@
                     </div>
                 </div>
 
+                <!-- intro text for the poems section -->
                 <div class="poems-intro">
                     <p>Welcome to my poetry corner! Click on any poem to read the full version~ ✨</p>
                 </div>
 
-                <!-- featured quote from dead poets society -->
+                <!-- a quote from dead poets society that inspired me -->
                 <div class="featured-quote-section">
                     <div class="quote-stars-left">
                         <span>⭐</span>
@@ -148,6 +180,7 @@
                     </div>
                     <div class="quote-container">
                         <div class="quote-frame">
+                            <!-- decorative elements around the quote -->
                             <div class="quote-decoration-top">
                                 <span>♡</span><span>★</span><span>♡</span>
                             </div>
@@ -171,9 +204,11 @@
                     </div>
                 </div>
 
-                <!-- poem cards that open in lightbox windows -->
+                <!-- grid of poem cards - click any card to open the full poem in a popup -->
                 <div class="poems-grid">
-                    <!-- poem 1 - Love and Grief -->
+                    
+                    <!-- each poem card has: icon, title, category badge, preview text, and hover overlay -->
+                    <!-- poem 1 -->
                     <div class="poem-card">
                         <a href="#poem1" class="poem-card-link">
                             <div class="poem-header">
@@ -184,6 +219,7 @@
                             <div class="poem-preview">
                                 <p>"November. It's raining again..."</p>
                             </div>
+                            <!-- this overlay with sparkles appears when you hover over the card -->
                             <div class="poem-overlay">
                                 <span class="overlay-text">✨ Read ✨</span>
                             </div>
@@ -429,6 +465,7 @@
                     </div>
                 </div>
 
+                <!-- footer showing total poem count -->
                 <div class="poems-footer">
                     <div class="footer-badge">
                         <span>✨ 15 poems • Collection Complete! ✨</span>
@@ -436,7 +473,7 @@
                 </div>
             </section>
 
-            <!-- art gallery section -->
+            <!-- art gallery section for displaying my artwork -->
             <section id="gallery" class="content-section gallery-section">
                 <div class="section-header">
                     <h2 class="section-title">
@@ -449,7 +486,7 @@
                     </div>
                 </div>
 
-                <!-- gallery grid -->
+                <!-- grid layout for displaying artwork thumbnails -->
                 <div class="gallery-grid">
                     <div class="gallery-item">
                         <a href="#art1" class="gallery-frame">
@@ -514,9 +551,10 @@
             </section>
         </main>
 
-        <!-- right sidebar with decorations -->
+        <!-- right sidebar with cute decorative elements -->
         <aside class="side-panel right-panel">
             <div class="panel-box decorative-box">
+                <!-- floating decorative icons -->
                 <div class="decorative-elements">
                     <span class="deco-star">⭐</span>
                     <span class="deco-heart">💖</span>
@@ -607,10 +645,15 @@
         </div>
     </div>
 
-    <!-- poem lightbox popups -->
+    <!-- lightbox popups for poems - these appear when you click a poem card -->
+    <!-- using css :target selector to show/hide them without javascript -->
+    
     <div id="poem1" class="lightbox poem-lightbox">
         <div class="lightbox-content poem-lightbox-content">
+            <!-- close button takes you back to poems section -->
             <a href="#poems" class="lightbox-close">✕</a>
+            
+            <!-- poem header with icon and title -->
             <div class="poem-lightbox-header">
                 <span class="poem-icon">🌧️</span>
                 <h3 class="poem-title">Draft 1: Love and Grief</h3>
