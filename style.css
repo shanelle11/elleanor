@@ -39,7 +39,7 @@ body {
     /* creating a grid pattern background for y2k vibes */
     --grid-color: rgba(255, 255, 255, 0.4);
     --grid-size: 50px;
-    background-color: #FFB6D9;
+    background-color: #FBB6D9;
     background-image: 
         repeating-linear-gradient(
             0deg,
